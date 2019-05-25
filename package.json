@@ -9,6 +9,8 @@
   "author": "Richie Casto (https://github.com/rcasto)",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.0",
     "redis": "^2.8.0"
-  }
+  },
+  "devDependencies": {}
 }
