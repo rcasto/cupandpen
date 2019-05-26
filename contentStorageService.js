@@ -30,12 +30,13 @@ async function init(contentPath) {
 }
 
 function getAllContent() {
-    return Object.values(contentStore);
+    return Object.keys(contentStore)
+        .map(contentName => getContent(contentName));
 }
 
 function getContent(name) {
     if (contentStore[name]) {
-        return contentStore[name];
+        return Object.assign({}, contentStore[name]);
     }
     return null;
 }
