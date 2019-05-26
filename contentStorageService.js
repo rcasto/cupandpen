@@ -18,7 +18,7 @@ async function init(contentPath) {
             .filter(contentFile => markdownFileRegex.test(contentFile.name))
             .map(async contentFile => ({
                 name: contentFile.name,
-                data: await readFile(`./${contentPath}/${contentFile.name}`, dataEncoding)
+                data: md.render((await readFile(`./${contentPath}/${contentFile.name}`, dataEncoding)))
             }))
         ));
 
