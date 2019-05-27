@@ -5,6 +5,7 @@ const readFile = util.promisify(fs.readFile);
 const readdir = util.promisify(fs.readdir);
 
 const markdownFileRegex = /^.*\.md$/;
+const fileExtensionRegex = /\.[^/.]+$/;
 const dataEncoding = 'utf8';
 const contentStore = { };
 
@@ -17,7 +18,7 @@ async function init(contentPath) {
             .filter(contentFile => contentFile && contentFile.isFile())
             .filter(contentFile => markdownFileRegex.test(contentFile.name))
             .map(async contentFile => ({
-                name: contentFile.name,
+                name: contentFile.name.replace(fileExtensionRegex, ''),
                 data: md.render((await readFile(`./${contentPath}/${contentFile.name}`, dataEncoding)))
             }))
         ));
