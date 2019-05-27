@@ -17,9 +17,22 @@ async function init() {
         });
     });
 
+    app.get('/content', (req, res) => {
+        res.redirect('/');
+    });
+
     app.get('/content/:name', (req, res) => {
+        var contentName = req.params.name || '';
+        var content = contentStorageService.getContent(contentName);
+
+        if (!content) {
+            res
+                .sendStatus(404);
+            return;
+        }
+
         res.render('content', {
-            content: contentStorageService.getContent(req.params.name),
+            content,
         });
     });
 
