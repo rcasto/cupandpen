@@ -4,14 +4,15 @@ const contentStorageServiceFactory = require('./contentStorageService');
 const contentDirectory = './content';
 const port = 3000;
 
-async function init() {
-    const contentStorageService = await contentStorageServiceFactory(contentDirectory);
+function init() {
+    const contentStorageServicePromise = contentStorageServiceFactory(contentDirectory);
     const app = express();
 
     app.set('views', './views');
     app.set('view engine', 'ejs');
 
-    app.get('/', (req, res) => {
+    app.get('/', async (req, res) => {
+        var contentStorageService = await contentStorageServicePromise;
         res.render('index', {
             contentList: contentStorageService.getAllContent(),
         });
@@ -21,13 +22,13 @@ async function init() {
         res.redirect('/');
     });
 
-    app.get('/content/:name', (req, res) => {
+    app.get('/content/:name', async (req, res) => {
+        var contentStorageService = await contentStorageServicePromise;
         var contentName = req.params.name || '';
         var content = contentStorageService.getContent(contentName);
 
         if (!content) {
-            res
-                .sendStatus(404);
+            res.sendStatus(404);
             return;
         }
 
