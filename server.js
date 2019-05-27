@@ -17,6 +17,12 @@ async function init() {
         });
     });
 
+    app.get('/content/:name', (req, res) => {
+        res.render('content', {
+            content: contentStorageService.getContent(req.params.name),
+        });
+    });
+
     app.listen(port,
         () => console.log(`Server started on port ${port}`));
 }
