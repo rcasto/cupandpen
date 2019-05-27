@@ -40,7 +40,13 @@
     </div>
 
     <script>
-        
+        var contentItems = document.querySelectorAll('.content-item') || [];
+        contentItems
+            .forEach(contentItem => {
+                contentItem.addEventListener('click', evt => {
+                    console.log(evt.currentTarget.id);
+                }, false);
+            });
     </script>
 </body>
 </html>
