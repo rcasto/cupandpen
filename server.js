@@ -2,7 +2,7 @@ const express = require('express');
 const contentStorageServiceFactory = require('./contentStorageService');
 
 const contentDirectory = './content';
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 function init() {
     const contentStorageServicePromise = contentStorageServiceFactory(contentDirectory);
