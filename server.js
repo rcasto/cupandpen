@@ -1,7 +1,7 @@
 const express = require('express');
 const contentStorageServiceFactory = require('./contentStorageService');
 
-const contentDirectory = './content';
+const contentDirectory = './public/content';
 const port = process.env.PORT || 3000;
 
 function init() {
@@ -10,6 +10,8 @@ function init() {
 
     app.set('views', './views');
     app.set('view engine', 'ejs');
+    
+    app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
         var contentStorageService = await contentStorageServicePromise;
