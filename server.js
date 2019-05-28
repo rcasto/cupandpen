@@ -1,4 +1,5 @@
 const express = require('express');
+const compression = require('compression');
 const contentStorageServiceFactory = require('./contentStorageService');
 
 const contentDirectory = './public/content';
@@ -11,6 +12,7 @@ function init() {
     app.set('views', './views');
     app.set('view engine', 'ejs');
     
+    app.use(compression());
     app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
