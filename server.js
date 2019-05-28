@@ -1,5 +1,6 @@
 const express = require('express');
 const compression = require('compression');
+const helmet = require('helmet');
 const contentStorageServiceFactory = require('./contentStorageService');
 
 const contentDirectory = './public/content';
@@ -12,6 +13,7 @@ function init() {
     app.set('views', './views');
     app.set('view engine', 'ejs');
     
+    app.use(helmet());
     app.use(compression());
     app.use(express.static('public'))
 
