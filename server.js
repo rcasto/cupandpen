@@ -34,7 +34,7 @@ function init() {
         var content = contentStorageService.getContent(contentName);
 
         if (!content) {
-            res.sendStatus(404);
+            res.redirect('/');
             return;
         }
 
