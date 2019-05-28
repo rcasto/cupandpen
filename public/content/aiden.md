@@ -8,7 +8,7 @@ always will be
 You, at this time, didn't do much  
 That's not your fault  
 That's just nature  
-You little far demon  
+You little fart demon  
 Turd muffin  
 Ok...I'll stop  
 It was nice to meet you though  
