@@ -1,8 +1,8 @@
 {
-  "name": "writingportfolio",
+  "name": "cupandpen",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Repository for https://cupandpen.com",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "deploy": "git push azure master"
