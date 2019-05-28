@@ -1,17 +1,40 @@
 *, *:before, *:after {
     box-sizing: border-box;
 }
-.content-item {
+body {
     width: 80%;
-    height: 160px;
+    padding: 6px;
     margin: 0 auto;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+.nav a {
+    padding: 12px;
+    margin-right: 6px;
+    border: 1px solid black;
+}
+.nav a:nth-child(odd) {
+    border-top-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+.nav a:nth-child(even) {
+    border-top-right-radius: 24px;
+    border-bottom-left-radius: 24px;
+}
+.nav a:last-of-type {
+    margin-right: 0;
+}
+.content-item {
+    height: 160px;
     overflow: hidden;
     padding: 6px;
     border: 3px solid black;
     border-radius: 6px;
     position: relative;
-    display: block;
-    margin: 6px auto 0 auto;
+    margin-top: 6px;
 }
 .content-item:first-of-type {
     margin-top: 0;

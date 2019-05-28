@@ -2,6 +2,9 @@
 <html lang="en">
 <%- include('partials/head.common.ejs', { subtitle: content.name }); %>
 <body>
-    <%- include('partials/content.common.ejs', { data: content.data }); %>
+    <%- include('partials/nav.common.ejs'); %>
+    <main>
+        <%- include('partials/content.common.ejs', { data: content.data }); %>
+    </main>
 </body>
 </html>
