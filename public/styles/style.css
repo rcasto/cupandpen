@@ -1,0 +1,36 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+.content-item {
+    width: 80%;
+    height: 160px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 6px;
+    border: 3px solid black;
+    border-radius: 6px;
+    position: relative;
+    display: block;
+    margin: 6px auto 0 auto;
+}
+.content-item:first-of-type {
+    margin-top: 0;
+}
+.content-item-read {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-decoration: underline;
+    background-color: white;
+    border-style: solid;
+    border-color: black;
+    padding: 12px;
+    border-width: 1px 0 0 1px;
+    border-top-left-radius: 24px;
+}
+.content img {
+    max-height: 300px;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto;
+}

@@ -1,65 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Writers Block</title>
-    <style>
-        *, *:before, *:after {
-            box-sizing: border-box;
-        }
-        .content-list {
-            /* display: grid; */
-            /* grid-gap: 6px; */
-        }
-        .content-item {
-            color: inherit;
-            text-decoration: none;
-
-            width: 80%;
-            height: 240px;
-            margin: 0 auto;
-            overflow: hidden;
-            cursor: pointer;
-            padding: 6px;
-            border: 1px solid black;
-            border-radius: 6px;
-            position: relative;
-
-            /* May want to remove below when moving to grid */
-            display: block;
-            margin: 6px auto 0 auto;
-        }
-        .content-item:first-of-type {
-            margin-top: 0;
-        }
-        .content-item-read {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            text-decoration: underline;
-            background-color: white;
-            border-style: solid;
-            border-color: black;
-            padding: 12px;
-            border-width: 1px 0 0 1px;
-            border-top-left-radius: 24px;
-        }
-        .content-item img {
-            max-height: 300px;
-            max-width: 400px;
-        }
-    </style>
-</head>
+<%- include('partials/head.common.ejs', { subtitle: '' }); %>
 <body>
     <div class="content-list">
         <% contentList.forEach(function(contentItem){ %>
-            <a href="/content/<%= contentItem.name %>" class="content-item">
-                <%- contentItem.data %>
+            <div class="content-item">
+                <%- include('partials/content.common.ejs', { data: contentItem.data }); %>
                 <div class="content-item-read">
-                    <span>Click to read</span>
+                    <a href="/content/<%= contentItem.name %>">
+                        Read more...
+                    </a>
                 </div>
-            </a>
+            </div>
         <% }) %>
     </div>
 </body>
