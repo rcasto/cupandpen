@@ -6,6 +6,7 @@ body {
     padding: 6px;
     margin: 0 auto;
 }
+
 .nav {
     display: flex;
     justify-content: center;
@@ -27,19 +28,22 @@ body {
 .nav a:last-of-type {
     margin-right: 0;
 }
+
 .content-item {
-    height: 160px;
-    overflow: hidden;
     padding: 6px;
     border: 3px solid black;
     border-radius: 6px;
     position: relative;
-    margin-top: 6px;
+    margin-bottom: 6px;
 }
-.content-item:first-of-type {
-    margin-top: 0;
+.content-item:last-of-type {
+    margin-bottom: 0;
 }
-.content-item-read {
+.content-item.content-item--preview {
+    height: 160px;
+    overflow: hidden;
+}
+.content-item .content-item-read {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -51,7 +55,7 @@ body {
     border-width: 1px 0 0 1px;
     border-top-left-radius: 24px;
 }
-.content img {
+.content-item .content img {
     max-height: 300px;
     max-width: 400px;
     display: block;

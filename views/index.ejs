@@ -3,16 +3,9 @@
 <%- include('partials/head.common.ejs', { subtitle: '' }); %>
 <body>
     <%- include('partials/nav.common.ejs'); %>
-    <main class="content-list">
+    <main>
         <% contentList.forEach(function(contentItem){ %>
-            <section class="content-item">
-                <%- include('partials/content.common.ejs', { data: contentItem.data }); %>
-                <div class="content-item-read">
-                    <a href="/content/<%= contentItem.name %>">
-                        Read more...
-                    </a>
-                </div>
-            </section>
+            <%- include('partials/content.view.ejs', { ...contentItem, isPreview: true }); %>
         <% }) %>
     </main>
 </body>

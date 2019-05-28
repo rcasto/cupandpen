@@ -1,0 +1,12 @@
+<section class="content-item <%= isPreview ? 'content-item--preview' : '' %>">
+    <div class="content">
+        <%- data %>
+    </div>
+    <% if (isPreview) { %>
+        <div class="content-item-read">
+            <a href="/content/<%= name %>">
+                Read more...
+            </a>
+        </div>
+    <% } %>
+</section>

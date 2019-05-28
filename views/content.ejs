@@ -4,7 +4,7 @@
 <body>
     <%- include('partials/nav.common.ejs'); %>
     <main>
-        <%- include('partials/content.common.ejs', { data: content.data }); %>
+        <%- include('partials/content.view.ejs', { ...content, isPreview: false }); %>
     </main>
 </body>
 </html>
