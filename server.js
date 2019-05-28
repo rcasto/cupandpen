@@ -18,7 +18,7 @@ function init() {
     app.use(helmet());
     app.use(compression());
     // app.use(httpsRedirect);
-    app.use(wwwToNonWwwRedirect);
+    // app.use(wwwToNonWwwRedirect);
     app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
