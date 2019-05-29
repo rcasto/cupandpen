@@ -2,7 +2,6 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const contentStorageServiceFactory = require('./lib/contentStorageService');
-const httpsRedirect = require('./lib/httpsRedirect');
 const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
 
 const contentDirectory = './public/content';
@@ -17,8 +16,7 @@ function init() {
     
     app.use(helmet());
     app.use(compression());
-    // app.use(httpsRedirect);
-    // app.use(wwwToNonWwwRedirect);
+    app.use(wwwToNonWwwRedirect);
     app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
