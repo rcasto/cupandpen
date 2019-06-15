@@ -2,10 +2,9 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const appInsights = require('applicationinsights');
-const contentStorageServiceFactory = require('./lib/contentStorageService');
+const blobStorageService = require('./lib/blobStorageService');
 const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
 
-const contentDirectory = './public/content';
 const port = process.env.PORT || 3000;
 const appInsightsInstrumentationKey = "031b9eaf-2cd8-44e8-89ec-2f79f454ec25";
 
@@ -15,7 +14,6 @@ appInsights
     .start();
 
 function init() {
-    const contentStorageServicePromise = contentStorageServiceFactory(contentDirectory);
     const app = express();
 
     app.set('views', './views');
@@ -27,16 +25,14 @@ function init() {
     app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
-        var contentStorageService = await contentStorageServicePromise;
         res.render('index', {
-            contentList: contentStorageService.getAllContent(),
+            contentList: await blobStorageService.getAllContent(),
         });
     });
 
     app.get('/content/:name', async (req, res) => {
-        var contentStorageService = await contentStorageServicePromise;
         var contentName = req.params.name || '';
-        var content = contentStorageService.getContent(contentName);
+        var content = await blobStorageService.getContent(contentName);
 
         if (!content) {
             res.redirect('/');
