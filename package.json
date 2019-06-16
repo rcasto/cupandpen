@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "deploy": "git push azure master"
+    "deploy": "git push azure master",
+    "sastoken": "node contentScripts.js",
+    "sync": "azcopy sync 'content' 'https://cupandpen.blob.core.windows.net/content' --recursive --delete-destination=true"
   },
   "engines": {
     "node": "^10",
