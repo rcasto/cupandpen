@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "deploy": "git push azure master",
-    "sastoken": "node contentScripts.js",
-    "sync": "azcopy sync 'content' 'https://cupandpen.blob.core.windows.net/content' --recursive --delete-destination=true"
+    "sync": "node contentScripts.js"
   },
   "engines": {
     "node": "^10",
@@ -24,5 +23,7 @@
     "helmet": "^3.18.0",
     "markdown-it": "^8.4.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  }
 }
