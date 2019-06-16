@@ -4,13 +4,13 @@ const helmet = require('helmet');
 const appInsights = require('applicationinsights');
 const blobStorageService = require('./lib/blobStorageService');
 const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
+const config = require('./config.json');
 
 const port = process.env.PORT || 3000;
-const appInsightsInstrumentationKey = "031b9eaf-2cd8-44e8-89ec-2f79f454ec25";
 
 // Start Application Insights
 appInsights
-    .setup(appInsightsInstrumentationKey)
+    .setup(config.appInsights.key)
     .start();
 
 function init() {

@@ -4,14 +4,12 @@ const {
     ContainerSASPermissions
 } = require('@azure/storage-blob');
 const shell = require('shelljs');
+const config = require('./config.json');
 
-const account = "cupandpen";
-const accountKey = "MFgRtBFNvfMl8tYN089zBbfIxMbg7AppTCmGx8GxEpG8T/3JI3WqTaMjPv3gA37sPPP1KNTu0l6OlJKwh4Zj+g==";
-const containerName = `content`;
 const localFolder = 'content';
 const expirationTimeInMs = 300000; // 5 minutes
 
-const sharedKeyCredential = new SharedKeyCredential(account, accountKey);
+const sharedKeyCredential = new SharedKeyCredential(config.storageAccount.account, config.storageAccount.key);
 
 const containerSasPermissions = new ContainerSASPermissions();
 containerSasPermissions.add = true;
@@ -22,12 +20,12 @@ containerSasPermissions.list = true;
 containerSasPermissions.delete = true;
 
 const sasQueryParameters = generateBlobSASQueryParameters({
-    containerName,
+    containerName: config.storageAccount.container,
     permissions: containerSasPermissions.toString(),
     expiryTime: new Date(Date.now() + expirationTimeInMs)
 }, sharedKeyCredential);
 
-const syncCommand = `azcopy sync "${localFolder}" "https://${account}.blob.core.windows.net/${containerName}?${sasQueryParameters.toString()}" --recursive --delete-destination=true`;
+const syncCommand = `azcopy sync "${localFolder}" "https://${config.storageAccount.account}.blob.core.windows.net/${config.storageAccount.container}?${sasQueryParameters.toString()}" --recursive --delete-destination=true`;
 shell.exec(syncCommand, (code, stdout, stderr) => {
     console.log('Exit code:', code);
     if (code !== 0) {
