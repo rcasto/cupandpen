@@ -4,7 +4,7 @@ const {
     ContainerSASPermissions
 } = require('@azure/storage-blob');
 const shell = require('shelljs');
-const config = require('./config.json');
+const config = require('../config.json');
 
 const localFolder = 'content';
 const expirationTimeInMs = 300000; // 5 minutes
