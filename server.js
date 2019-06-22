@@ -25,8 +25,11 @@ function init() {
     app.use(express.static('public'))
 
     app.get('/', async (req, res) => {
+        const contentList = await blobStorageService.getAllContent();
         res.render('index', {
-            contentList: await blobStorageService.getAllContent(),
+            contentList: contentList.sort(function (content1, content2) {
+                return content2.timestamp - content1.timestamp;
+            }),
         });
     });
 
