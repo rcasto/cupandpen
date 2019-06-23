@@ -10,7 +10,17 @@ body {
 
 .header {
     text-align: center;
+    padding: 12px;
+    border: 1px solid black;
+    border-top-style: dashed;
+    border-bottom-width: 3px;
+    border-radius: 0% 0% 100% 100%;
+    margin: 6px 0 6px 0;
 }
+.header .header-title {
+    margin: 0;
+}
+
 .nav {
     display: flex;
     justify-content: center;
