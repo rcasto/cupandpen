@@ -6,9 +6,11 @@ body {
     width: 80%;
     padding: 6px;
     margin: 0 auto;
-    background-color: red;
 }
 
+.header {
+    text-align: center;
+}
 .nav {
     display: flex;
     justify-content: center;
