@@ -1,4 +1,4 @@
-# Wastebin
+## Wastebin
 Write and fail  
 Write and fail  
 Crumble the paper  

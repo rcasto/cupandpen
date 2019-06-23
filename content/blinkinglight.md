@@ -1,4 +1,4 @@
-# Blinking light
+## Blinking light
 Blinking light  
 I watch for you  
 In the dark  

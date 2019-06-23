@@ -1,4 +1,4 @@
-# Medium
+## Medium
 Memory broken  
 Thinking disrupted  
 When the medium  
