@@ -21,7 +21,7 @@ Below is both what ingredients I will be using and what I calculated to be the t
 | [WLP013 London Ale Yeast](https://www.morebeer.com/products/wlp013-london-ale-yeast-white-labs.html) - ~71% att. | 1 packet        |
 
 | Beer Property | Theoretical Value |
-| ------------- | ----------------- |
+| :------------ | :---------------- |
 | BG            | 1.067             |
 | OG            | 1.079             |
 | FG            | 1.023             |
