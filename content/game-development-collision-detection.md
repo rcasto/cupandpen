@@ -22,6 +22,6 @@ To check for collisions I've decided to use a [QuadTree](https://en.wikipedia.or
 
 In incorporating a QuadTree, I went ahead and built my own little javascript library called [simplequad](https://github.com/rcasto/simplequad).  
 
-It is meant to aid in doing one thing well and that is collision detection. You pass in objects implementing one required method `getBounds()`. This allows simplequad to bucket your object appropriately. Then you can query the QuadTree produced with a boundary to see what objects are in said boundary window. If 2 objects are within the bounds of 1 objects bounding container, you have a collision.
+It is meant to aid in doing one thing well and that is collision detection. You pass in objects implementing a `Bound` interface. This allows simplequad to then bucket your objects appropriately. Then you can query the QuadTree produced with a boundary to see what objects are in said boundary window. If 2 objects are within the bounds of 1 objects bounding container, you have a collision.
 
 On to the next topic to learn more on…collision resolution. I can detect collisions pretty well, but not so great at resolving them at the moment.

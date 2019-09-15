@@ -6,7 +6,7 @@ I'm trying to get back into the home brewing game though, it has been a few mont
 
 Currently setting out to brew an IPA. The recipe being used comes from John Palmer's [How To Brew](http://www.howtobrew.com/) book. The IPA is called [Victory and Chaos](https://www.homebrewersassociation.org/homebrew-recipe/victory-and-chaos-ipa/). Seems like a fairly easy beer to brew, so it should be a good recipe to ease me back into all the homebrewing mechanics.
 
-First part of getting this process started, is getting the ingredients for the brew. This process in and of itself required some review. Basically figuring out the correct amount of malt extract to get adjusting for differences in ppg's and also the correct amount of hops to get adjusting for differences in ABU's.
+First part of getting this process started, is getting the ingredients for the brew. This process in and of itself required some review. Basically figuring out the correct amount of malt extract to get adjusting for differences in ppg's and also the correct amount of hops to get adjusting for differences in AAU's.
 
 In the process of reviewing this, I did already learn about what BG (boil gravity) is and how to go about calculating the expected IBU of the beer based on a hopping schedule.
 
