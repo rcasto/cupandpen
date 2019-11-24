@@ -56,8 +56,8 @@ body {
 
 .content-item {
     background-color: var(--content-background-color);
-    padding: 12px;
-    border-radius: 6px;
+    padding: 16px;
+    border-radius: 8px;
     margin-bottom: 12px;
     position: relative;
 }
@@ -79,6 +79,25 @@ body {
     border-color: var(--content-border-color);
     border-width: 1px 0 0 1px;
     border-top-left-radius: 24px;
+}
+
+/* markdown content template styles */
+.content-item .content * {
+    margin: 16px 0;
+}
+.content-item .content *:first-child {
+    margin-top: 0;
+}
+.content-item .content *:last-child {
+    margin-bottom: 0;
+}
+
+.content-item .content br {
+    margin: 0 0 4px 0;
+}
+.content-item .content table {
+    padding: 6px;
+    border: 1px solid black;
 }
 .content-item .content img {
     max-height: 300px;
