@@ -1,6 +1,6 @@
 const {
     generateBlobSASQueryParameters,
-    SharedKeyCredential,
+    StorageSharedKeyCredential,
     ContainerSASPermissions
 } = require('@azure/storage-blob');
 const shell = require('shelljs');
@@ -9,7 +9,7 @@ const config = require('../config.json');
 const localFolder = 'content';
 const expirationTimeInMs = 300000; // 5 minutes
 
-const sharedKeyCredential = new SharedKeyCredential(config.storageAccount.account, config.storageAccount.key);
+const sharedKeyCredential = new StorageSharedKeyCredential(config.storageAccount.account, config.storageAccount.key);
 
 const containerSasPermissions = new ContainerSASPermissions();
 containerSasPermissions.add = true;
