@@ -12,11 +12,15 @@ Utilizing [certbot](https://certbot.eff.org/), you can utilize the following com
 sudo certbot certonly --manual
 ```
 
+When the interactive prompt comes up, enter the domain(s) you wish to create the certificate for.
+
 ### Renewing cert
 Should be able to just run the following to get the process started:
 ```
 sudo certbot renew
 ```
+
+**Note:** It is not possible to use this command to renew a certificate created using the manual mode.
 
 ## Create PFX file using openssl
 ```
