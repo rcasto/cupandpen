@@ -11,18 +11,10 @@ const expirationTimeInMs = 300000; // 5 minutes
 
 const sharedKeyCredential = new StorageSharedKeyCredential(config.storageAccount.account, config.storageAccount.key);
 
-const containerSasPermissions = new ContainerSASPermissions();
-containerSasPermissions.add = true;
-containerSasPermissions.create = true;
-containerSasPermissions.write = true;
-containerSasPermissions.read = true;
-containerSasPermissions.list = true;
-containerSasPermissions.delete = true;
-
 const sasQueryParameters = generateBlobSASQueryParameters({
     containerName: config.storageAccount.container,
-    permissions: containerSasPermissions.toString(),
-    expiryTime: new Date(Date.now() + expirationTimeInMs)
+    permissions: ContainerSASPermissions.parse("racwdl"),
+    expiresOn: new Date(Date.now() + expirationTimeInMs)
 }, sharedKeyCredential);
 
 const syncCommand = `azcopy sync "${localFolder}" "https://${config.storageAccount.account}.blob.core.windows.net/${config.storageAccount.container}?${sasQueryParameters.toString()}" --recursive --delete-destination=true`;
