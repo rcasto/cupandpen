@@ -27,9 +27,14 @@ function init() {
     app.get('/', async (req, res) => {
         const contentList = await blobStorageService.getAllContent();
         res.render('index', {
-            contentList: contentList.sort(function (content1, content2) {
-                return content2.timestamp - content1.timestamp;
-            }),
+            contentList: contentList
+                .sort((content1, content2) => {
+                    return content2.timestamp - content1.timestamp;
+                })
+                .map(content => ({
+                    ...content,
+                    data: (content.data || '').substring(0, config.content.previewLengthInChars),
+                })),
         });
     });
 

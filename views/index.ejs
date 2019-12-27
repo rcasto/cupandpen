@@ -5,7 +5,7 @@
     <%- include('partials/nav.common.ejs'); %>
     <main>
         <% contentList.forEach(function(contentItem){ %>
-            <%- include('partials/content.view.ejs', { ...contentItem, isPreview: true }); %>
+            <%- include('partials/content-preview.view.ejs', { ...contentItem }); %>
         <% }) %>
     </main>
     <%- include('partials/footer.view.ejs'); %>

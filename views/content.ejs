@@ -4,7 +4,7 @@
 <body>
     <%- include('partials/nav.common.ejs'); %>
     <main>
-        <%- include('partials/content.view.ejs', { ...content, isPreview: false }); %>
+        <%- include('partials/content.view.ejs', { ...content }); %>
     </main>
     <%- include('partials/footer.view.ejs'); %>
     <%- include('partials/script.common.ejs'); %>
