@@ -1,5 +1,4 @@
 ## Seeds4Tracks
-
 Recently I have been reviewing old projects and ideas I've had, basically going over my portfolio.
 
 I stumbled across an old project that I coined Seeds4Tracks.
@@ -24,4 +23,3 @@ Luckily, the Spotify Web API already has a [recommendations endpoint](https://de
 The only limitation with this API is that only a maximum of 5 "seed" objects total are able to be sent in a single request.
 
 To get around this, I generate unique combinations between the input artists of groups of 5, then from these randomly select a certain number of sets to utilize to retrieve recommendation tracks. The results from these requests are aggregated, then de-duped, and then recommendation tracks are randomly picked.
-

@@ -15,6 +15,3 @@ So yes, you can really make this script do anything. I just simply made the defa
 Oh...and you can also add an email address to the configuration as well. This email address will be sent an email of the script executions output. It'll look like it came from you just FYI. It may show up in junk folder too, it's not super legit, but works.
 
 Anyways, that's it. Cheers!
-
-
-
