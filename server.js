@@ -33,7 +33,7 @@ function init() {
                 })
                 .map(content => ({
                     ...content,
-                    data: (content.data || '').substring(0, config.content.previewLengthInChars),
+                    data: (content.data || '')/*.substring(0, config.content.previewLengthInChars),*/
                 })),
         });
     });
