@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: Helvetica, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     width: 90%;
     padding: 6px;
@@ -75,6 +75,9 @@ body {
     border-color: var(--content-border-color);
     border-width: 1px 0 0 1px;
     border-top-left-radius: 24px;
+}
+.content-item read-ability {
+    --readability-margin: 0 0 16px 0;
 }
 
 /* markdown content template styles */
