@@ -1,10 +1,12 @@
-<article class="content-item content-item--preview">
-    <div class="content">
-        <%- data %>
-    </div>
-    <div class="content-item-read">
-        <a href="/content/<%= name %>">
-            Read more...
-        </a>
-    </div>
+<article class="content-item-preview">
+    <a class="content-item-preview-link" href="/content/<%= name %>">
+        <div class="content-item-preview-name">
+            <%- name %>
+        </div>
+        <read-ability>
+            <div style="display: none;">
+                <%- data %>
+            </div>
+        </read-ability>
+    </a>
 </article>

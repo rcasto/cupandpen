@@ -49,32 +49,32 @@ body {
     margin-right: 0;
 }
 
+.content-item-preview {
+    padding-bottom: 6px;
+    border-bottom: 1px solid black;
+    margin-bottom: 6px;
+}
+.content-item-preview:last-of-type {
+    padding: 0;
+    border-bottom: none;
+    margin: 0;
+}
+.content-item-preview .content-item-preview-link {
+    display: flex;
+    flex-direction: column;
+}
+.content-item-preview .content-item-preview-link .content-item-preview-name {
+    font-weight: bold;
+}
+.content-item-preview read-ability {
+    margin-left: auto;
+}
+
 .content-item {
     background-color: var(--content-background-color);
     padding: 16px;
     border: 2px solid var(--content-border-color);
     border-radius: 8px;
-    margin-bottom: 12px;
-    position: relative;
-}
-.content-item:last-of-type {
-    margin-bottom: 0;
-}
-.content-item.content-item--preview {
-    height: 160px;
-    overflow: hidden;
-}
-.content-item .content-item-read {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    text-decoration: underline;
-    background-color: inherit;
-    padding: 12px;
-    border-style: solid;
-    border-color: var(--content-border-color);
-    border-width: 1px 0 0 1px;
-    border-top-left-radius: 24px;
 }
 .content-item read-ability {
     --readability-margin: 0 0 16px 0;
