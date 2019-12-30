@@ -1,4 +1,4 @@
-## Seeds4Tracks
+## seeds4tracks
 Recently I have been reviewing old projects and ideas I've had, basically going over my portfolio.
 
 I stumbled across an old project that I coined Seeds4Tracks.
