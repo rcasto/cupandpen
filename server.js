@@ -31,10 +31,6 @@ function init() {
                 .sort((content1, content2) => {
                     return content2.timestamp - content1.timestamp;
                 })
-                .map(content => ({
-                    ...content,
-                    data: (content.data || '')/*.substring(0, config.content.previewLengthInChars),*/
-                })),
         });
     });
 
