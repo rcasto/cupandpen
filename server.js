@@ -48,6 +48,10 @@ function init() {
         });
     });
 
+    app.get('/favicon.ico', (req, res) => {
+        res.sendStatus(204);
+    });
+
     app.get('*', (req, res) => {
         res.redirect('/');
     });
