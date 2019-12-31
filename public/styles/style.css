@@ -50,9 +50,9 @@ body {
 }
 
 .content-item-preview {
-    padding-bottom: 6px;
+    padding-bottom: 12px;
     border-bottom: 1px solid black;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
 }
 .content-item-preview:last-of-type {
     padding: 0;
