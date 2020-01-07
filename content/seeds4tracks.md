@@ -1,7 +1,7 @@
 ## seeds4tracks
 Recently I have been reviewing old projects and ideas I've had, basically going over my portfolio.
 
-I stumbled across an old project that I coined Seeds4Tracks.
+I stumbled across an old project that I coined seeds4tracks.
 
 The basic premise of this project being that you input "seeds", those being artists, tracks, and such. Then these "seeds" are used to generate a set of tracks that hopefully introduces you to some new music to enjoy.
 
