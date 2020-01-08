@@ -81,7 +81,7 @@ body {
 }
 
 /* markdown content template styles */
-.content-item .content * {
+.content-item .content *:not(blockquote) {
     margin: 16px 0;
 }
 .content-item .content *:first-child {
