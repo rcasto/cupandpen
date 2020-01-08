@@ -1,4 +1,4 @@
-# Lifestyle goals\habits for 2020
+# Lifestyle habits for 2020
 
 - Meditate for at least 10 minutes a day via Headspace
 - Continue brushing teeth twice a day, once in the morning, once before bed, and flossing at least once a day
