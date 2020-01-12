@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "deploy": "git push azure master",
-    "sync": "node scripts/syncContent.js"
+    "syncContent": "node scripts/syncContent.js",
+    "updateSitemap": "node scripts/updateSiteMap.js"
   },
   "engines": {
     "node": "^12",
@@ -24,6 +25,9 @@
     "markdown-it": "^10.0.0"
   },
   "devDependencies": {
-    "shelljs": "^0.8.3"
+    "jsdom": "^15.2.1",
+    "request": "^2.88.0",
+    "shelljs": "^0.8.3",
+    "sitemap": "^5.1.0"
   }
 }
