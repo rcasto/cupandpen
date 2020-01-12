@@ -5,7 +5,9 @@ const jsdom = require("jsdom");
 
 const { JSDOM } = jsdom;
 
-const baseWebsite = 'http://cupandpen.com';
+const baseWebsiteDomain = 'cupandpen.com';
+const baseWebsiteHttp = `http://${baseWebsiteDomain}`;
+const baseWebsiteHttps = `https://${baseWebsiteDomain}`;
 
 function toLinkList(nodeLinkList) {
     const links = [];
@@ -51,14 +53,20 @@ function getUrlHTML(url) {
 }
 
 function startSitemapUpdate() {
-    crawlUrlLinks(baseWebsite)
+    crawlUrlLinks(baseWebsiteHttp)
         .then(siteLinks => {
             console.log(`Site Links:\n${siteLinks}`);
 
-            const sitemap = new SitemapStream({ hostname: 'https://cupandpen.com' });
+            const currentDate = new Date();
+            const sitemap = new SitemapStream({
+                hostname: baseWebsiteHttps,
+            });
             siteLinks
                 .forEach(siteLink => {
-                    sitemap.write(siteLink);
+                    sitemap.write({
+                        url: siteLink,
+                        lastmod: currentDate,
+                    });
                 });
             sitemap.end();
             
