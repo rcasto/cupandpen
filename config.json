@@ -8,6 +8,6 @@
         "container": "content"
     },
     "cache": {
-        "expirationTimeInMs": 300000
+        "expirationTimeInMs": 900000
     }
 }
