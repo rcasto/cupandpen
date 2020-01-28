@@ -8,6 +8,10 @@ body {
     padding: 6px;
     margin: 0 auto;
 }
+main {
+    margin: 24px 0;
+    padding-top: 16px;
+}
 
 :root {
     --content-background-color: white;
@@ -20,7 +24,7 @@ body {
     padding: 12px;
     border: 2px solid var(--content-border-color);
     border-radius: 0% 0% 100% 100%;
-    margin: 0 auto 12px auto;
+    margin: 0 auto;
     max-width: 70%;
 }
 .header .header-title {
@@ -72,9 +76,6 @@ body {
 
 .content-item {
     background-color: var(--content-background-color);
-    padding: 16px;
-    border: 2px solid var(--content-border-color);
-    border-radius: 8px;
 }
 .content-item read-ability {
     --readability-margin: 0 0 16px 0;
