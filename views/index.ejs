@@ -4,11 +4,11 @@
 <body>
     <%- include('partials/nav.common.ejs'); %>
     <main>
-        <% contentList.forEach(function(contentItem){ %>
-            <%- include('partials/content-preview.view.ejs', { ...contentItem }); %>
+        <% contentList.forEach(function(contentListObj){ %>
+            <%- include('partials/content-preview.view.ejs', { ...contentListObj.content }); %>
         <% }) %>
     </main>
-    <%- include('partials/footer.view.ejs'); %>
+    <%- include('partials/footer.view.ejs', { prevContent: null, nextContent: null }); %>
     <%- include('partials/script.common.ejs'); %>
 </body>
 </html>

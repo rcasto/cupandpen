@@ -6,7 +6,7 @@
     <main>
         <%- include('partials/content.view.ejs', { ...content }); %>
     </main>
-    <%- include('partials/footer.view.ejs'); %>
+    <%- include('partials/footer.view.ejs', { prevContent, nextContent }); %>
     <%- include('partials/script.common.ejs'); %>
 </body>
 </html>

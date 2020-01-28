@@ -1,4 +1,13 @@
 <footer>
+    <div class="footer-links-container">
+        <% if (prevContent) { %>
+            <a class="footer-links-prev" href="/content/<%= prevContent.name %>">Prev</a>
+        <% } %>
+        <% if (nextContent) { %>
+            <a class="footer-links-next" href="/content/<%= nextContent.name %>">Next</a>
+        <% } %>
+    </div>
+
     <social-contact
         github="rcasto"
         linkedin="rcasto">

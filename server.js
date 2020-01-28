@@ -27,24 +27,23 @@ function init() {
     app.get('/', async (req, res) => {
         const contentList = await blobStorageService.getAllContent();
         res.render('index', {
-            contentList: contentList
-                .sort((content1, content2) => {
-                    return content2.timestamp - content1.timestamp;
-                })
+            contentList,
         });
     });
 
     app.get('/content/:name', async (req, res) => {
         var contentName = req.params.name || '';
-        var content = await blobStorageService.getContent(contentName);
+        var contentObj = await blobStorageService.getContent(contentName);
 
-        if (!content) {
+        if (!contentObj) {
             res.redirect('/');
             return;
         }
 
         res.render('content', {
-            content,
+            prevContent: contentObj.prev,
+            content: contentObj.content,
+            nextContent: contentObj.next,
         });
     });
 
