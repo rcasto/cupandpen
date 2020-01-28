@@ -74,21 +74,50 @@ Deletion can incportate the necessity to merge nodes when the reach undeflow.
 
 The previous chapter was primarily an introduction to B-Trees and their operations. Describing them as great structures for on disk persistence, but not describing how they were to be laid out on disk. You could think of the previous chapter as describing them as in-memory structures, which B-Trees can certainly also be implemented as, but is not how they are typically used in the real world.
 
-In order to lay these structures out on disk we must understand file format structure. Files are typically laid out in the following way:
+### General file formats
 
-[file header,  ...., file data, ...., file footer]
+In order to lay these structures out on disk we must first understand a little bit about file format structure. Files are typically laid out in the following way:
 
-The file header and the file footer typically contain metadata describing the file format as well as the data the file contains.
+`[file header,  ... file data ... , file footer]`
+
+The file header and the file footer are typically of a fixed size and contain metadata describing the file format as well as the data the file contains.
+
+When dealing with designing a file format for a mix of fixed size data as well as variable sized data, such as strings, it can be useful to group all the fixed size data together.
+
+At the end of this grouping then you can add the variable sized data. This allows jumping directly to the start of the variable sized data section. For each variable sized data section you also need to store the size of this variable data explicitly. To then get to the next variable size data section you would skip the fixed size data portion then add the size of the variable size data section to skip.
+
+### File formats applied to B-Trees
 
 Disk space is typically abstracted into **pages**. Pages are then typically made up of a fixed number of **blocks**. Blocks are the smallest unit that can be read or written then to disk. Blocks have a fixed size that differs depending on the disk hardware.
 
 When adding a new file to disk, a chunk of disk space must first be found that can fit the file. This space can span across multiple pages or be contained within one page. If it is contained within 1 page, that page is typically kept in memory until it is filled and then the in memory buffer is written to disk. If it spans multiple pages there are different techniques that can be applied. The multiple pages containing the file data can be contiguous as in they are right next to eachother or they can be disconnected. In the case that they are disconnected the pointers to the varying pages, must be kept in the file header or file footer as metadata.
 
-The **slotted page technique** makes use of an abstraction called a **cell**. A page with this technique is comprised of cells. These cells themselves are formatted similar to files in that they have a cell header that contains metadata about the cell itself. The cell is accessed via finding the page id the cell is associated with and then adding the offset from the page start to the beginning of the cell.
+Applying the notion of pages back to the B-Tree, each node is typically represented as page on disk, or a set of pages linked together. There are then 2 types of node/page structures with this notion:
+
+- Non-leaf nodes storing keys and pointers to nodes
+- Leaf nodes storing keys and values
+
+The **slotted page technique** makes use of an abstraction called a **cell**. A page with this technique is comprised of cells. The cells then are comprised of blocks. These cells themselves are formatted similar to files in that they have a cell header that contains metadata about the cell itself. The cell is accessed via finding the page id the cell is associated with and then adding the offset from the page start to the beginning of the cell.
+
+There are 2 types of cells:
+
+- Key cells
+- Key-Value cells
+
+Cells do not have to be of the same size, but they are typically typified via an Enum or constant.
+
+Pages now have the traditional page header, but it now also includes the number of cells present in the page. Then after the fixed page header portion, the pointers to the various cells are stored.
+
+`[Page Header, Cell Pointers,... -> Available space <- ..., Cell 2, Cell 1]`
+
+Although data may be inserted into cells in an order that is not sorted, the pointers to the cells themselves can be sorted to adjust the ordering and make it proper for a binary search to be able to be performed.
+
+To reclaim space within a page, if a cell is removed. An availablility list of cells, which have been free'd is typically maintained in memory. If there is available space to fit newly added data, but no individual available cell can fit the data, then the page must be read and re-written, defragmenting the "live" cells, and allowing the available space to reclaimed such that the new data can fit.
+
+## Chapter 4 - Implementing B-Trees
 
 ## References
 
 - https://www.w3.org/TR/IndexedDB-2/
 - https://en.wikipedia.org/wiki/B-tree
 - https://www.databass.dev/
-
