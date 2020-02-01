@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head.common.ejs', { subtitle: content.name }); %>
+<%- include('partials/head.common.ejs', { subtitle: content.name, description: content.text.length > 160 ? `${content.text.slice(0, 160)}...` : content.text }); %>
 <body>
     <%- include('partials/nav.common.ejs'); %>
     <main>

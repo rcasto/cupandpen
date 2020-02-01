@@ -4,7 +4,11 @@
     <% } else { %>
         <title>Cup and Pen</title>
     <% } %>
-    <meta name="description" content="Cup and Pen - a site featuring content created by me...a regular dude. Ramblings, musings, sadness, happiness, and more...it's life. Grab a cup and enjoy!">
+    <% if (description) { %>
+        <meta name="description" content="Cup and Pen - <%= description %>">
+    <% } else { %>
+        <meta name="description" content="Cup and Pen - a site featuring content created by me...a regular dude. Ramblings, musings, sadness, happiness, and more...it's life. Grab a cup and enjoy!">
+    <% } %>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
