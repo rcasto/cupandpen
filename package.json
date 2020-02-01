@@ -22,8 +22,9 @@
     "ejs": "^3.0.1",
     "express": "^4.17.1",
     "helmet": "^3.21.2",
+    "jsdom": "^16.0.1",
     "markdown-it": "^10.0.0",
-    "jsdom": "^16.0.1"
+    "markdown-it-link-attributes": "^3.0.0"
   },
   "devDependencies": {
     "request": "^2.88.0",
