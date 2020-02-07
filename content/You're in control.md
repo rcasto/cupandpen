@@ -2,7 +2,7 @@
 
 The shoelace snaps
 
-The bus rolls away just as your arrive
+The bus rolls away just as you arrive
 
 The light turns red, just for you
 
