@@ -2,6 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const appInsights = require('applicationinsights');
+const path = require('path');
 const blobStorageService = require('./lib/blobStorageService');
 const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
 const config = require('./config.json');
@@ -16,13 +17,13 @@ appInsights
 function init() {
     const app = express();
 
-    app.set('views', './views');
+    app.set('views', path.resolve(__dirname, 'views'));
     app.set('view engine', 'ejs');
     
     app.use(helmet());
     app.use(compression());
     app.use(wwwToNonWwwRedirect);
-    app.use(express.static('public'))
+    app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', async (req, res) => {
         const contentList = await blobStorageService.getAllContent();
