@@ -9,5 +9,6 @@
     },
     "cache": {
         "expirationTimeInMs": 900000
-    }
+    },
+    "contentDir": "content"
 }

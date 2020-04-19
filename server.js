@@ -1,17 +1,18 @@
 const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
-const appInsights = require('applicationinsights');
-const blobStorageService = require('./lib/blobStorageService');
+const path = require('path');
+// const appInsights = require('applicationinsights');
+const fileStorageService = require('./lib/fileStorageService');
 const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
 const config = require('./config.json');
 
 const port = process.env.PORT || 3000;
 
 // Start Application Insights
-appInsights
-    .setup(config.appInsights.key)
-    .start();
+// appInsights
+//     .setup(config.appInsights.key)
+//     .start();
 
 function init() {
     const app = express();
@@ -22,10 +23,10 @@ function init() {
     app.use(helmet());
     app.use(compression());
     app.use(wwwToNonWwwRedirect);
-    app.use(express.static('public'))
+    app.use(express.static(path.resolve('path', 'public')));
 
     app.get('/', async (req, res) => {
-        const contentList = await blobStorageService.getAllContent();
+        const contentList = await fileStorageService.getAllContent();
         res.render('index', {
             contentList,
         });
@@ -33,7 +34,7 @@ function init() {
 
     app.get('/content/:name', async (req, res) => {
         var contentName = req.params.name || '';
-        var contentObj = await blobStorageService.getContent(contentName);
+        var contentObj = await fileStorageService.getContent(contentName);
 
         if (!contentObj) {
             res.redirect('/');
