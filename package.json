@@ -16,18 +16,18 @@
   "author": "Richie Casto (https://github.com/rcasto)",
   "license": "MIT",
   "dependencies": {
-    "@azure/storage-blob": "^12.1.0",
+    "@azure/storage-blob": "^12.1.1",
     "compression": "^1.7.4",
-    "ejs": "^3.0.1",
+    "ejs": "^3.0.2",
     "express": "^4.17.1",
-    "helmet": "^3.21.3",
-    "jsdom": "^16.2.0",
+    "helmet": "^3.22.0",
+    "jsdom": "^16.2.2",
     "markdown-it": "^10.0.0",
     "markdown-it-link-attributes": "^3.0.0"
   },
   "devDependencies": {
     "request": "^2.88.2",
     "shelljs": "^0.8.3",
-    "sitemap": "^6.0.0"
+    "sitemap": "^6.1.1"
   }
 }
