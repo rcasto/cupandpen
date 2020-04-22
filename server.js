@@ -2,28 +2,19 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
-// const appInsights = require('applicationinsights');
 const fileStorageService = require('./lib/fileStorageService');
-const wwwToNonWwwRedirect = require('./lib/wwwToNonWwwRedirect');
-const config = require('./config.json');
 
 const port = process.env.PORT || 3000;
-
-// Start Application Insights
-// appInsights
-//     .setup(config.appInsights.key)
-//     .start();
 
 function init() {
     const app = express();
 
-    app.set('views', './views');
+    app.set('views', path.resolve(__dirname, 'views'));
     app.set('view engine', 'ejs');
     
     app.use(helmet());
     app.use(compression());
-    app.use(wwwToNonWwwRedirect);
-    app.use(express.static(path.resolve('path', 'public')));
+    app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', async (req, res) => {
         const contentList = await fileStorageService.getAllContent();
