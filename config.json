@@ -1,13 +1,6 @@
 {
-    "appInsights": {
-        "key": "031b9eaf-2cd8-44e8-89ec-2f79f454ec25"
-    },
-    "storageAccount": {
-        "key": "MFgRtBFNvfMl8tYN089zBbfIxMbg7AppTCmGx8GxEpG8T/3JI3WqTaMjPv3gA37sPPP1KNTu0l6OlJKwh4Zj+g==",
-        "account": "cupandpen",
-        "container": "content"
-    },
     "cache": {
         "expirationTimeInMs": 900000
-    }
+    },
+    "contentDir": "content"
 }

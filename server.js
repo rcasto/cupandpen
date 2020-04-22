@@ -2,7 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
-const blobStorageService = require('./lib/blobStorageService');
+const fileStorageService = require('./lib/fileStorageService');
 
 const port = process.env.PORT || 3000;
 
@@ -17,7 +17,7 @@ function init() {
     app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', async (req, res) => {
-        const contentList = await blobStorageService.getAllContent();
+        const contentList = await fileStorageService.getAllContent();
         res.render('index', {
             contentList,
         });
@@ -25,7 +25,7 @@ function init() {
 
     app.get('/content/:name', async (req, res) => {
         var contentName = req.params.name || '';
-        var contentObj = await blobStorageService.getContent(contentName);
+        var contentObj = await fileStorageService.getContent(contentName);
 
         if (!contentObj) {
             res.redirect('/');
