@@ -22,7 +22,8 @@
     "helmet": "3.22.0",
     "jsdom": "16.2.2",
     "markdown-it": "10.0.0",
-    "markdown-it-link-attributes": "3.0.0"
+    "markdown-it-link-attributes": "3.0.0",
+    "node-cache": "5.1.0"
   },
   "devDependencies": {
     "request": "2.88.2",
