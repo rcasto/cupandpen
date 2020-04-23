@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "deploy": "git push azure master",
     "syncContent": "node scripts/syncContent.js",
     "updateSitemap": "node scripts/updateSiteMap.js"
   },
