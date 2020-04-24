@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "syncContent": "node scripts/syncContent.js",
+    "sync": "bash scripts/sync.sh",
     "updateSitemap": "node scripts/updateSiteMap.js"
   },
   "engines": {
