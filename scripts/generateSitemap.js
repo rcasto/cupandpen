@@ -1,6 +1,7 @@
 const fs = require('fs');
 const util = require('util');
 const { SitemapStream, streamToPromise } = require('sitemap');
+const formatXML = require('xml-formatter');
 const fileStorageService = require('../lib/fileStorageService');
 
 const fsWriteFilePromise = util.promisify(fs.writeFile);
@@ -28,7 +29,7 @@ async function generateSitemap() {
         const sitemapBuffer = await streamToPromise(sitemap);
         const sitemapString = sitemapBuffer.toString();
 
-        await fsWriteFilePromise(sitemapPath, sitemapString);
+        await fsWriteFilePromise(sitemapPath, formatXML(sitemapString));
     } catch (err) {
         console.error(err);
     }

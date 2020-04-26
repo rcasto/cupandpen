@@ -25,6 +25,7 @@
     "node-cache": "5.1.0"
   },
   "devDependencies": {
-    "sitemap": "6.1.2"
+    "sitemap": "6.1.2",
+    "xml-formatter": "^2.0.1"
   }
 }
