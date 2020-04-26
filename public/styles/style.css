@@ -3,7 +3,7 @@
 }
 body {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 20px;
+    font-size: 24px;
     width: 90%;
     padding-top: 16px;
     margin: 0 auto;
@@ -22,7 +22,7 @@ footer {
 }
 
 :root {
-    --content-background-color: #cccccc;
+    --content-background-color: #FFFFF3;
     --content-border-color: black;
     --font-color: black;
 
@@ -76,6 +76,7 @@ footer {
 }
 .content-item read-ability {
     --readability-margin: 0 0 16px 0;
+    --readability-font-size: 16px;
 }
 
 /* markdown content template styles */
