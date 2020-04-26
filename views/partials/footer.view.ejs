@@ -1,25 +1,22 @@
 <footer>
-    <div class="footer-links-container">
-        <% if (prevContent) { %>
-            <a
-                class="footer-links-prev"
-                href="/content/<%= prevContent.name %>"
-                aria-label="prevous content piece">
-                &#x0227A;
-            </a>
-        <% } %>
-        <% if (nextContent) { %>
-            <a
-                class="footer-links-next"
-                href="/content/<%= nextContent.name %>"
-                aria-label="next content piece">
-                &#x0227B;
-            </a>
-        <% } %>
-    </div>
-
+    <% if (prevContent) { %>
+        <a
+            class="footer-links-prev"
+            href="/content/<%= prevContent.name %>"
+            aria-label="prevous content piece">
+            &#x0227A;
+        </a>
+    <% } %>
     <social-contact
         github="rcasto"
         linkedin="rcasto">
     </social-contact>
+    <% if (nextContent) { %>
+        <a
+            class="footer-links-next"
+            href="/content/<%= nextContent.name %>"
+            aria-label="next content piece">
+            &#x0227B;
+        </a>
+    <% } %>
 </footer>

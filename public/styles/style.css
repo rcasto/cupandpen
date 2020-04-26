@@ -16,6 +16,8 @@ main {
     flex-grow: 1;
 }
 footer {
+    display: flex;
+    font-size: 48px;
     flex-shrink: 0;
 }
 
@@ -102,15 +104,10 @@ footer {
     margin: 0 auto;
 }
 
-.footer-links-container {
-    display: flex;
-}
-.footer-links-container a {
+footer a  {
+    margin: auto;
     text-decoration: none;
 }
-.footer-links-container .footer-links-prev {
-    margin-left: 0;
-}
-.footer-links-container .footer-links-next {
-    margin-left: auto;
+footer social-contact {
+    width: 100%;
 }
