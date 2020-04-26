@@ -20,27 +20,12 @@ footer {
 }
 
 :root {
-    --content-background-color: white;
+    --content-background-color: #aaaaaa;
     --content-border-color: black;
     --font-color: black;
 
     background-color: var(--content-background-color);
     color: var(--font-color);
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        --content-background-color: #121212;
-        --content-border-color: white;
-        --font-color: white;
-
-        opacity: 0.8;
-    }
-    a {
-        color: #80D8FF;
-    }
-    a:visited {
-        color: #B388FF;
-    }
 }
 
 :root, body {
