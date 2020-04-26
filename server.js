@@ -16,6 +16,11 @@ function init() {
     app.use(compression());
     app.use(express.static(path.resolve(__dirname, 'public')));
 
+    app.use(function (req, res, next) {
+        console.log(`Request received for ${req.path}`);
+        next()
+    });
+
     app.get('/', async (req, res) => {
         const contentList = await fileStorageService.getAllContent();
         res.render('index', {
