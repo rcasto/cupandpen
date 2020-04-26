@@ -44,6 +44,9 @@ footer {
 .header .header-title {
     margin: 0;
 }
+.header a {
+    text-decoration: none;
+}
 
 .content-item-preview {
     padding-bottom: 12px;
@@ -101,6 +104,9 @@ footer {
 
 .footer-links-container {
     display: flex;
+}
+.footer-links-container a {
+    text-decoration: none;
 }
 .footer-links-container .footer-links-prev {
     margin-left: 0;

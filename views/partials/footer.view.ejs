@@ -1,10 +1,20 @@
 <footer>
     <div class="footer-links-container">
         <% if (prevContent) { %>
-            <a class="footer-links-prev" href="/content/<%= prevContent.name %>">Prev</a>
+            <a
+                class="footer-links-prev"
+                href="/content/<%= prevContent.name %>"
+                aria-label="prevous content piece">
+                &#x0227A;
+            </a>
         <% } %>
         <% if (nextContent) { %>
-            <a class="footer-links-next" href="/content/<%= nextContent.name %>">Next</a>
+            <a
+                class="footer-links-next"
+                href="/content/<%= nextContent.name %>"
+                aria-label="next content piece">
+                &#x0227B;
+            </a>
         <% } %>
     </div>
 
