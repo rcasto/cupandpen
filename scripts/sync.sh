@@ -10,9 +10,9 @@
 # https://www.raspberrypi.org/documentation/configuration/security.md
 # https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md
 # https://askubuntu.com/questions/6723/change-folder-permissions-and-ownership
-pushd ./
+
 # Copy content over
 rsync -avzh --progress -e "ssh -p 1285" content/ bluebird@192.168.0.159:/var/www/cupandpen/content/ --delete
+
 # Copy sitemap over
 rsync -avzh --progress -e "ssh -p 1285" public/sitemap.xml bluebird@192.168.0.159:/var/www/cupandpen/public/sitemap.xml
-popd
