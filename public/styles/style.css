@@ -63,6 +63,7 @@ footer {
 .content-item-preview .content-item-preview-link {
     display: flex;
     flex-direction: column;
+    text-decoration: none;
 }
 .content-item-preview .content-item-preview-link .content-item-preview-name {
     font-weight: bold;
