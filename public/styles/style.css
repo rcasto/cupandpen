@@ -91,6 +91,9 @@ footer {
     margin-bottom: 0;
 }
 
+.content-item .content {
+    line-height: 1.4em;
+}
 .content-item .content br {
     margin: 0 0 4px 0;
 }
