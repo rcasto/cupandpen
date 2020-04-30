@@ -10,5 +10,11 @@
             });
     }
 </script> -->
-<script defer src="https://cdn.jsdelivr.net/npm/readability-component@1.0.0/dist/readability.min.js"></script>
-<script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.0/dist/social-contact.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/readability-component@1.0.3/dist/readability.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.1/dist/social-contact.min.js"></script>
+<script>
+    window.addEventListener('load', () => {
+        customElements.define('social-contact', SocialContact);
+        customElements.define('read-ability', Readability);
+    });
+</script>
