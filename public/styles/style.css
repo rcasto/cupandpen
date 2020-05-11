@@ -77,7 +77,8 @@ footer {
 }
 .content-item read-ability {
     --readability-margin: 0 0 16px 0;
-    --readability-font-size: 16px;
+    --readability-font-size: 0.6em;
+    --readability-spacer-margin: 0 12px;
 }
 
 /* markdown content template styles */
@@ -107,6 +108,10 @@ footer {
     max-width: 100%;
     display: block;
     margin: 0 auto;
+}
+.content-item .content eqn {
+    display: block;
+    text-align: center;
 }
 
 footer a  {
