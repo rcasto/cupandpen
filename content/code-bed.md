@@ -39,5 +39,5 @@ Anyway I'm just gonna have a little more fun and add one more, mainly cause I ca
 
 Cheers!
 
-<code-bed data-slug-hash="jcLia" data-height="400"></code-bed>
+<code-bed data-slug-hash="jcLia" data-height="500"></code-bed>
 
