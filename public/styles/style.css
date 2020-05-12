@@ -107,7 +107,7 @@ footer {
     background-color: inherit;
 }
 .content-item .content table tbody tr:nth-child(odd) {
-    background-color: #ebebdf;
+    background-color: #f0f0e4;
 }
 .content-item .content img {
     max-height: 300px;
