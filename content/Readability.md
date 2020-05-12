@@ -30,13 +30,34 @@ Typically the best approach though, seems to be a hybrid. Storing a chosen corpu
 
 This is actually how the readability-component works. 
 
-Before defining a corpus, I wanted to understand more, how the rules above performed on a set of words. For this, I used hyphenation data made available via the [Moby Project](https://en.wikipedia.org/wiki/Moby_Project).
+Before selecting an offline dictionary, I wanted to understand how the rules above performed on a set of words. For this, I used hyphenation data made available via the [Moby Project](https://en.wikipedia.org/wiki/Moby_Project).
 
-![Performance of rules on Moby Project data](/images/moby-project-data-rules-performance.png)
+| Data descriptor                                              | Data value |
+| ------------------------------------------------------------ | ---------- |
+| Number of words for which rules correctly identified syllable count | 127,317    |
+| Number of words for which rules incorrectly identified syllable count | 43,898     |
+| Number of words for which syllable count was wrong and are common words | 1,063      |
+| Number of words in Moby Project corpus                       | 187,175    |
+| Numer of words filtered out from Moby Project corpus (word contains hyphen or space, > 6 syllables) | 15,960     |
+| Number of words within Moby Project corpus used in calculations | 171,215    |
+| Percentage of words for which syllable counts were correctly identified by rules | 74.361%    |
+| Average difference from rules based syllable count to real syllable count on incorrectly identified words | 1.055      |
 
 The [code used to generate this performance test](https://github.com/rcasto/readability-component/tree/master/data) can be found in the [readability-component repository](https://github.com/rcasto/readability-component).
 
-As seen from the above results the rules above perform surprisingly well.
+Looking at the data above, it can be seen that the rules do surprisingly well. Correctly identifiying around 70% of syllable counts of words in the Moby Project corpus.
+
+Then, when the rules are wrong, they are on average off by around 1 syllable.
+
+Still though, there are around 43,000 words on which it was wrong. That's still sizable, but is all that needs to be focused on, since the rules work well in other cases.
+
+I wanted to trim this further, as this dictionary would be served in the readability-component javascript bundle. With that, I wanted to store locally what would be the most impactful. My theory may not be the best, but is simple enough. Only store words for which the rules were incorrect and are also considered common words.
+
+For a corpus of common words I made use of the [10,000 most common English words derived from Google's Trillion Word Corpus](https://github.com/first20hours/google-10000-english).
+
+From the 43,000 cases where the rules were incorrect, I then ran these words against the common words list to see if they were common. The result being around 1,000 common words.
+
+These are the words that make up [readability-component's offline dictionary](https://github.com/rcasto/readability-component/blob/master/data/syllableCount.json).
 
 ### Alternative readability tests
 
