@@ -103,6 +103,12 @@ footer {
     border: 1px solid black;
     border-spacing: 8px;
 }
+.content-item .content table tbody tr {
+    background-color: inherit;
+}
+.content-item .content table tbody tr:nth-child(odd) {
+    background-color: #ebebdf;
+}
 .content-item .content img {
     max-height: 300px;
     max-width: 100%;
