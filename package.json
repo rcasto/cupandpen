@@ -24,7 +24,8 @@
     "markdown-it": "10.0.0",
     "markdown-it-link-attributes": "3.0.0",
     "markdown-it-texmath": "0.6.7",
-    "node-cache": "5.1.0"
+    "node-cache": "5.1.0",
+    "winston": "3.2.1"
   },
   "devDependencies": {
     "sitemap": "6.1.4",

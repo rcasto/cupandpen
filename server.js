@@ -3,8 +3,13 @@ const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
 const fileStorageService = require('./lib/fileStorageService');
+const { logRequest, logError } = require('./lib/logger');
 
 const port = process.env.PORT || 3000;
+
+function onError(message, err) {
+    logError(`Error: ${message}\n${JSON.stringify(err)}`);
+}
 
 function init() {
     const app = express();
@@ -17,31 +22,44 @@ function init() {
     app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.use(function (req, res, next) {
-        console.log(`Request received for ${req.path}`);
+        logRequest(`Request: ${req.path}`);
         next()
     });
 
     app.get('/', async (req, res) => {
-        const contentList = await fileStorageService.getAllContent();
+        let contentList = [];
+
+        try {
+            contentList = await fileStorageService.getAllContent();
+        } catch (err) {
+            onError(`Failed to load home page`, err);
+        }
+
         res.render('index', {
             contentList,
         });
     });
 
     app.get('/content/:name', async (req, res) => {
-        var contentName = req.params.name || '';
-        var contentObj = await fileStorageService.getContent(contentName);
+        const contentName = req.params.name || '';
 
-        if (!contentObj) {
-            res.redirect('/');
-            return;
+        try {
+            const contentObj = await fileStorageService.getContent(contentName);
+
+            if (!contentObj) {
+                res.redirect('/');
+                logRequest(`Content not found: ${contentName}`);
+                return;
+            }
+
+            res.render('content', {
+                prevContent: contentObj.prev,
+                content: contentObj.content,
+                nextContent: contentObj.next,
+            });
+        } catch (err) {
+            onError(`Failed to load content ${contentName}`, err);
         }
-
-        res.render('content', {
-            prevContent: contentObj.prev,
-            content: contentObj.content,
-            nextContent: contentObj.next,
-        });
     });
 
     app.get('/favicon.ico', (req, res) => {
@@ -49,6 +67,7 @@ function init() {
     });
 
     app.get('*', (req, res) => {
+        logRequest(`Redirect: ${req.path}`);
         res.redirect('/');
     });
 
