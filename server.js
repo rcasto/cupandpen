@@ -19,12 +19,12 @@ function init() {
     
     app.use(helmet());
     app.use(compression());
-    app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.use(function (req, res, next) {
-        logRequest(`Request: ${req.path}`);
+        logRequest(req.path, `Request: ${req.path}`);
         next()
     });
+    app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', async (req, res) => {
         let contentList = [];
@@ -48,7 +48,7 @@ function init() {
 
             if (!contentObj) {
                 res.redirect('/');
-                logRequest(`Content not found: ${contentName}`);
+                logRequest(req.path, `Redirecting to home, content not found: ${req.path}`);
                 return;
             }
 
@@ -67,7 +67,7 @@ function init() {
     });
 
     app.get('*', (req, res) => {
-        logRequest(`Redirect: ${req.path}`);
+        logRequest(req.path, `Redirecting to home, unknown/unhandled path: ${req.path}`);
         res.redirect('/');
     });
 
