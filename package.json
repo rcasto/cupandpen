@@ -9,7 +9,7 @@
     "sitemap": "node scripts/generateSitemap.js"
   },
   "engines": {
-    "node": "^12",
+    "node": "^14",
     "npm": "^6"
   },
   "author": "Richie Casto (https://github.com/rcasto)",
