@@ -2,90 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
     <url>
         <loc>
-            https://cupandpen.com/content/Readability
+            https://cupandpen.com/content/Running%20on%20Pi
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/code-bed
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/It's%20in%20the%20air
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/Pandemic
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/COVID-19%20Report
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/You're%20in%20control
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/The%20shoe%20looker
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/Status
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/Sidewalks%20closed
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/Roads%20universal
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
-        </lastmod>
-    </url>
-    <url>
-        <loc>
-            https://cupandpen.com/content/Bus%20or%20silly
-        </loc>
-        <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -93,7 +13,95 @@
             https://cupandpen.com/content/Be%20a%20pidgeon
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Readability
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/code-bed
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/It's%20in%20the%20air
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Pandemic
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/COVID-19%20Report
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/You're%20in%20control
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/The%20shoe%20looker
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Status
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Sidewalks%20closed
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Roads%20universal
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
+        </lastmod>
+    </url>
+    <url>
+        <loc>
+            https://cupandpen.com/content/Bus%20or%20silly
+        </loc>
+        <lastmod>
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -101,7 +109,7 @@
             https://cupandpen.com/content/Nervous,%20but%20ready
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -109,7 +117,7 @@
             https://cupandpen.com/content/You,%20Person
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -117,7 +125,7 @@
             https://cupandpen.com/content/Straight%20ramblin'
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -125,7 +133,7 @@
             https://cupandpen.com/content/Privacy
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -133,7 +141,7 @@
             https://cupandpen.com/content/Mantra
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -141,7 +149,7 @@
             https://cupandpen.com/content/seeds4tracks
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -149,7 +157,7 @@
             https://cupandpen.com/content/Web%20Components
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -157,7 +165,7 @@
             https://cupandpen.com/content/pi-up
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -165,7 +173,7 @@
             https://cupandpen.com/content/Near,%20but%20far,%20but%20near
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -173,7 +181,7 @@
             https://cupandpen.com/content/Homebrew%20-%20Victory%20and%20Chaos%20IPA
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -181,7 +189,7 @@
             https://cupandpen.com/content/Game%20Development%20(Collision%20Detection)
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -189,7 +197,7 @@
             https://cupandpen.com/content/Don't%20worry
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -197,7 +205,7 @@
             https://cupandpen.com/content/Blinking%20light
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -205,7 +213,7 @@
             https://cupandpen.com/content/Wastebin
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -213,7 +221,7 @@
             https://cupandpen.com/content/Want
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -221,7 +229,7 @@
             https://cupandpen.com/content/Time
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -229,7 +237,7 @@
             https://cupandpen.com/content/Medium
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -237,7 +245,7 @@
             https://cupandpen.com/content/Home
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -245,7 +253,7 @@
             https://cupandpen.com/content/Fire
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -253,7 +261,7 @@
             https://cupandpen.com/content/Attention
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
     <url>
@@ -261,7 +269,7 @@
             https://cupandpen.com/content/Aiden
         </loc>
         <lastmod>
-            2020-05-12T05:14:26.396Z
+            2020-06-07T17:33:12.645Z
         </lastmod>
     </url>
 </urlset>
