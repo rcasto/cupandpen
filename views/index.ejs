@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include('partials/head.common.ejs', { subtitle: '', description: '' }); %>
 <body>
-    <%- include('partials/nav.common.ejs'); %>
+    <%- include('partials/nav.common.ejs', { showDescription: true }); %>
     <main>
         <% contentList.forEach(function(contentListObj){ %>
             <%- include('partials/content-preview.view.ejs', contentListObj); %>
