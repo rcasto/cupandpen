@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include('partials/head.common.ejs', { subtitle: content.name, description: content.text.length > 160 ? `${content.text.slice(0, 160)}...` : content.text }); %>
 <body>
-    <%- include('partials/nav.common.ejs', { showDescription: false }); %>
+    <%- include('partials/header.common.ejs', { showDescription: false }); %>
     <main>
         <%- include('partials/content.view.ejs', { ...content }); %>
     </main>
