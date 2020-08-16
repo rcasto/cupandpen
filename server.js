@@ -17,7 +17,7 @@ function init() {
 
     app.set('views', path.resolve(__dirname, 'views'));
     app.set('view engine', 'ejs');
-    
+
     app.use(helmet());
     app.use(compression());
 
@@ -26,7 +26,7 @@ function init() {
         lightOnTimeInMs: 200
     }));
     app.use(function (req, res, next) {
-        logRequest(req.path, `Request: ${req.path}`);
+        logRequest(req);
         next()
     });
     app.use(express.static(path.resolve(__dirname, 'public')));
@@ -52,8 +52,8 @@ function init() {
             const contentObj = await fileStorageService.getContent(contentName);
 
             if (!contentObj) {
+                logRequest(req, 'Redirecting to home, content not found');
                 res.redirect('/');
-                logRequest(req.path, `Redirecting to home, content not found: ${req.path}`);
                 return;
             }
 
@@ -72,7 +72,7 @@ function init() {
     });
 
     app.get('*', (req, res) => {
-        logRequest(req.path, `Redirecting to home, unknown/unhandled path: ${req.path}`);
+        logRequest(req, 'Redirecting to home, unknown/unhandled path');
         res.redirect('/');
     });
 
