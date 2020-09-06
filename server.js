@@ -7,9 +7,18 @@ const fileStorageService = require('./lib/fileStorageService');
 const { logRequest, logError } = require('./lib/logger');
 
 const port = process.env.PORT || 3000;
+const contentSecurityPolicy = "default-src 'self' https://codepen.io; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net https://static.codepen.io; style-src 'self' 'unsafe-inline';";
 
 function onError(message, err) {
     logError(`Error: ${message}\n${JSON.stringify(err)}`);
+}
+
+function renderView(res, viewName, viewData) {
+    res
+        .set({
+            'Content-Security-Policy': contentSecurityPolicy
+        })
+        .render(viewName, viewData);
 }
 
 function init() {
@@ -40,7 +49,7 @@ function init() {
             onError(`Failed to load home page`, err);
         }
 
-        res.render('index', {
+        renderView(res, 'index', {
             contentList,
         });
     });
@@ -57,7 +66,7 @@ function init() {
                 return;
             }
 
-            res.render('content', {
+            renderView(res, 'content', {
                 prevContent: contentObj.prev,
                 content: contentObj.content,
                 nextContent: contentObj.next,
