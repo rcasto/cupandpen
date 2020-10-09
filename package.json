@@ -21,14 +21,14 @@
     "express": "4.17.1",
     "express-request-activity": "1.0.2",
     "helmet": "4.1.1",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {
     "jsdom": "16.4.0",
     "katex": "0.12.0",
     "markdown-it": "11.0.1",
     "markdown-it-link-attributes": "3.0.0",
     "markdown-it-texmath": "0.8.0",
-    "winston": "3.3.3"
-  },
-  "devDependencies": {
     "sitemap": "6.3.2",
     "xml-formatter": "2.3.0"
   }
