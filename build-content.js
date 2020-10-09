@@ -6,8 +6,11 @@ const tm = require('markdown-it-texmath');
 const katex = require('katex');
 const fs = require('fs');
 const path = require('path');
+const util = require('util');
 const jsdom = require('jsdom');
 const readFileToString = require('./lib/util').readFileToString;
+
+const fsStatPromise = util.promisify(fs.stat);
 
 const contentDirectoryPath = path.resolve('./content');
 const contentIndexPath = path.resolve('./index.json');
@@ -32,10 +35,12 @@ async function getPublishedContentData(contentPath) {
     const contentData = await readFileToString(contentPath);
     const renderedContentData = md.render(contentData);
     const renderedContentText = JSDOM.fragment(renderedContentData).textContent || '';
+    const stats = await fsStatPromise(contentPath);
     return {
         name: path.basename(contentPath, markdownFileExtension),
         data: renderedContentData,
-        text: renderedContentText
+        text: renderedContentText,
+        timestamp: stats.mtimeMs
     };
 }
 
@@ -54,12 +59,18 @@ fs.readdir(contentDirectoryPath, async (err, contentNames) => {
             .map(contentName => path.resolve(contentDirectoryPath, contentName))
             .map(getPublishedContentData)
     );
-
     const contentIndex = {};
 
     contentFilesInfo
-        .forEach(contentFileInfo => {
-            contentIndex[contentFileInfo.name] = contentFileInfo;
+        .sort((contentFileInfo1, contentFileInfo2) => {
+            return contentFileInfo2.timestamp - contentFileInfo1.timestamp;
+        })
+        .forEach((contentFileInfo, contentFileInfoIndex) => {
+            contentIndex[contentFileInfo.name] = {
+                ...contentFileInfo,
+                prev: contentFilesInfo[contentFileInfoIndex - 1] || null,
+                next: contentFilesInfo[contentFileInfoIndex + 1] || null
+            };
         });
     
     fs.writeFile(contentIndexPath, JSON.stringify(contentIndex, null, '\t'), (err) => {
