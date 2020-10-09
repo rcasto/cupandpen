@@ -6,6 +6,8 @@ const path = require('path');
 const fileStorageService = require('./lib/fileStorageService');
 const { logRequest, logError } = require('./lib/logger');
 
+const contentIndex = require('./index.json');
+
 const port = process.env.PORT || 3000;
 const contentSecurityPolicy = "default-src 'self' https://codepen.io; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net https://static.codepen.io; style-src 'self' 'unsafe-inline';";
 
@@ -40,40 +42,29 @@ function init() {
     });
     app.use(express.static(path.resolve(__dirname, 'public')));
 
-    app.get('/', async (req, res) => {
-        let contentList = [];
-
-        try {
-            contentList = await fileStorageService.getAllContent();
-        } catch (err) {
-            onError(`Failed to load home page`, err);
-        }
+    app.get('/', (req, res) => {
+        let contentList = Object.values(contentIndex);
 
         renderView(res, 'index', {
             contentList,
         });
     });
 
-    app.get('/content/:name', async (req, res) => {
+    app.get('/content/:name', (req, res) => {
         const contentName = req.params.name || '';
+        const contentObj = contentIndex[contentName];
 
-        try {
-            const contentObj = await fileStorageService.getContent(contentName);
-
-            if (!contentObj) {
-                logRequest(req, 'Redirecting to home, content not found');
-                res.redirect('/');
-                return;
-            }
-
-            renderView(res, 'content', {
-                prevContent: contentObj.prev,
-                content: contentObj.content,
-                nextContent: contentObj.next,
-            });
-        } catch (err) {
-            onError(`Failed to load content ${contentName}`, err);
+        if (!contentObj) {
+            logRequest(req, 'Redirecting to home, content not found');
+            res.redirect('/');
+            return;
         }
+
+        renderView(res, 'content', {
+            prevContent: contentObj.prev,
+            content: contentObj,
+            nextContent: contentObj.next,
+        });
     });
 
     app.get('/favicon.ico', (req, res) => {
