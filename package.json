@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "sync": "bash scripts/sync.sh",
-    "sitemap": "node scripts/generateSitemap.js"
+    "sitemap": "node scripts/generateSitemap.js",
+    "build": "node build-content.js"
   },
   "engines": {
     "node": "^14",
