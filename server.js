@@ -1,5 +1,4 @@
 const express = require('express');
-const requestActivity = require('express-request-activity');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
@@ -27,10 +26,6 @@ function init() {
     app.use(helmet());
     app.use(compression());
 
-    app.use(requestActivity({
-        lightPin: 11,
-        lightOnTimeInMs: 200
-    }));
     app.use(function (req, res, next) {
         logRequest(req);
         next()

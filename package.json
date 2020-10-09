@@ -19,7 +19,6 @@
     "compression": "1.7.4",
     "ejs": "3.1.5",
     "express": "4.17.1",
-    "express-request-activity": "1.0.2",
     "helmet": "4.1.1",
     "winston": "3.3.3"
   },
