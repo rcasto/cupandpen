@@ -3,17 +3,12 @@ const requestActivity = require('express-request-activity');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
-const fileStorageService = require('./lib/fileStorageService');
-const { logRequest, logError } = require('./lib/logger');
+const { logRequest } = require('./lib/logger');
 
 const contentIndex = require('./index.json');
 
 const port = process.env.PORT || 3000;
 const contentSecurityPolicy = "default-src 'self' https://codepen.io; img-src 'self' data:; script-src 'self' https://cdn.jsdelivr.net https://static.codepen.io; style-src 'self' 'unsafe-inline';";
-
-function onError(message, err) {
-    logError(`Error: ${message}\n${JSON.stringify(err)}`);
-}
 
 function renderView(res, viewName, viewData) {
     res
