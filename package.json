@@ -26,7 +26,6 @@
     "markdown-it": "11.0.1",
     "markdown-it-link-attributes": "3.0.0",
     "markdown-it-texmath": "0.8.0",
-    "node-cache": "5.1.2",
     "winston": "3.3.3"
   },
   "devDependencies": {
