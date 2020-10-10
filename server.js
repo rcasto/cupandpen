@@ -2,7 +2,6 @@ const express = require('express');
 const compression = require('compression');
 const helmet = require('helmet');
 const path = require('path');
-const { logRequest } = require('./lib/logger');
 
 const contentIndex = require('./index.json');
 
@@ -25,11 +24,6 @@ function init() {
 
     app.use(helmet());
     app.use(compression());
-
-    app.use(function (req, res, next) {
-        logRequest(req);
-        next()
-    });
     app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', (req, res) => {
@@ -45,7 +39,6 @@ function init() {
         const contentObj = contentIndex[contentName];
 
         if (!contentObj) {
-            logRequest(req, 'Redirecting to home, content not found');
             res.redirect('/');
             return;
         }
@@ -62,7 +55,6 @@ function init() {
     });
 
     app.get('*', (req, res) => {
-        logRequest(req, 'Redirecting to home, unknown/unhandled path');
         res.redirect('/');
     });
 
