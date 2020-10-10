@@ -7,10 +7,11 @@
     "start": "node server.js",
     "sync": "bash scripts/sync.sh",
     "sitemap": "node scripts/generateSitemap.js",
-    "build": "node build-content.js"
+    "build": "node build-content.js",
+    "deploy:gcloud": "gcloud config set project cupandpen-292015 && gcloud app deploy app.yaml"
   },
   "engines": {
-    "node": "^14",
+    "node": "^12",
     "npm": "^6"
   },
   "author": "Richie Casto (https://github.com/rcasto)",
