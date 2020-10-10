@@ -7,7 +7,7 @@
     "start": "node server.js",
     "sync": "bash scripts/sync.sh",
     "sitemap": "node scripts/generateSitemap.js",
-    "build": "node build-content.js",
+    "build": "node scripts/build-content.js",
     "deploy:gcloud": "gcloud config set project cupandpen-292015 && gcloud app deploy app.yaml"
   },
   "engines": {
