@@ -27,7 +27,7 @@ function init() {
     app.use(express.static(path.resolve(__dirname, 'public')));
 
     app.get('/', (req, res) => {
-        let contentList = Object.values(contentIndex);
+        const contentList = Object.values(contentIndex);
 
         renderView(res, 'index', {
             contentList,
