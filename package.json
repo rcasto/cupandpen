@@ -8,6 +8,7 @@
     "sync": "bash scripts/sync.sh",
     "sitemap": "node scripts/generateSitemap.js",
     "build": "node scripts/build-content.js",
+    "build-views": "node scripts/build-views.js",
     "deploy:gcloud": "gcloud config set project cupandpen-292015 && gcloud app deploy app.yaml"
   },
   "engines": {
@@ -24,6 +25,7 @@
     "winston": "3.3.3"
   },
   "devDependencies": {
+    "http-server": "0.12.3",
     "jsdom": "16.4.0",
     "katex": "0.12.0",
     "markdown-it": "11.0.1",
