@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>Cup & Pen - code-bed</title>
+    
+    
+        <meta name="description" content="Cup & Pen - code-bed
+I&#39;ve been making a good bit of web components recently. Trying to figure out good ways to distribute and integrate them.
+Through this process I&#39;ve been...">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header>
+    <h1 class="header">
+        <a href="/">Cup & Pen</a>
+    </h1>
+    
+</header>
+    <main>
+        <article class="content-item">
+    <read-ability>
+        <div slot="readable-text" class="content">
+            <h2>code-bed</h2>
+<p>I've been making a good bit of <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components" target="_blank">web components</a> recently. Trying to figure out good ways to distribute and integrate them.</p>
+<p>Through this process I've been then incorporating them into this site. So far it's:</p>
+<ul>
+<li><a href="https://github.com/rcasto/readability-component" target="_blank">readability-component</a> - web component for readability and average reading time of content</li>
+<li><a href="https://github.com/rcasto/social-contact" target="_blank">social-contact</a> - web component to display social network icons linking to your profile(s)</li>
+</ul>
+<p>Another one being added to this list, is <a href="https://github.com/rcasto/code-bed" target="_blank">code-bed</a>, a web component for embedded CodePens.</p>
+<p><code-bed data-slug-hash="ExVoXKW"></code-bed></p>
+<p>Got a little meta there, and made a CodePen that can embed a CodePen, even embedding itself.</p>
+<p>All of this embedding though, is <a href="https://blog.codepen.io/documentation/embedded-pens/" target="_blank">driven by what CodePen already offers</a>.</p>
+<p>The web component aspect for the most part provides an easier interface for utilization, at least in my opinion haha.</p>
+<p><code-bed data-slug-hash="JBlCc"></code-bed></p>
+<p>I'm just having fun with them now haha. (I didn't make that by the way)</p>
+<p>One thing that differentiated making this web component, is that it isn't something, at least now, that is incorporated within this site in any particular static pattern.</p>
+<p>The usage of the code-bed web component is driven by its usage in content. Making for a more dynamic pattern.</p>
+<p>Particularly I wanted it such that when I am writing this content, I can invoke a special syntax that then allows me to make use a library of web components that are available in the context of the site it is rendered on.</p>
+<p>In this case the secret incantation is simply the normal declaritive usage of the web component desired. So for code-bed it looks something like <code>&lt;code-bed data-slug-hash&quot;wVGGzV&quot;&gt;&lt;/code-bed&gt;</code>.</p>
+<p>So while that is the version I see, the version you see is:</p>
+<p><code-bed data-slug-hash="wVGGzV"></code-bed></p>
+<p>There is one slight danger to this methodology as it requires the content be interpreted as HTML. An alternative methodology would utilize a transformation layer to convert from some pre-defined activation command into the corresponding HTML representation during render.</p>
+<p>Anyway I'm just gonna have a little more fun and add one more, mainly cause I can now haha.</p>
+<p>Cheers!</p>
+<p><code-bed data-slug-hash="jcLia" data-height="500"></code-bed></p>
+
+        </div>
+    </read-ability>
+</article>
+    </main>
+    <footer>
+    
+        <a
+            class="footer-links-prev"
+            href="/content/Readability"
+            aria-label="prevous content piece - Readability">
+            &#x0227A;
+        </a>
+    
+    <social-contact
+        github="rcasto"
+        linkedin="rcasto">
+    </social-contact>
+    
+        <a
+            class="footer-links-next"
+            href="/content/It&#39;s in the air"
+            aria-label="next content piece - It&#39;s in the air">
+            &#x0227B;
+        </a>
+    
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
+<script async src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
+</body>
+</html>
