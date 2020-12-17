@@ -4,11 +4,9 @@
   "description": "Repository for https://cupandpen.com",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "sync": "bash scripts/sync.sh",
+    "start": "http-server ./public",
     "sitemap": "node scripts/generateSitemap.js",
-    "build": "node scripts/build-views.js",
-    "dev": "http-server ./public"
+    "build": "node scripts/build-views.js"
   },
   "engines": {
     "node": "^12",
