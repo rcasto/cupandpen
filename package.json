@@ -19,6 +19,7 @@
   "author": "Richie Casto (https://github.com/rcasto)",
   "license": "MIT",
   "devDependencies": {
+    "date-fns": "2.16.1",
     "ejs": "3.1.5",
     "gray-matter": "4.0.2",
     "http-server": "0.12.3",
