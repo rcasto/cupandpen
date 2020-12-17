@@ -5,8 +5,8 @@
         <title>Cup & Pen - Readability</title>
     
     
-        <meta name="description" content="Cup & Pen - Readability
-In working on readability-component, it was necessary to develop a function that given a word was able to return the number of syllables in that wor...">
+        <meta name="description" content="Cup & Pen - In working on readability-component, it was necessary to develop a function that given a word was able to return the number of syllables in that word.
+This prob...">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,10 +22,11 @@ In working on readability-component, it was necessary to develop a function that
 </header>
     <main>
         <article class="content-item">
+    <div class="content-timestamp">May 12, 2020</div>
     <read-ability>
         <div slot="readable-text" class="content">
             <h2>Readability</h2>
-<p>In working on <a href="https://github.com/rcasto/readability-component" target="_blank">readability-component</a>, it was necessary to develop a function that given a word was able to return the number of syllables in that word.</p>
+            <p>In working on <a href="https://github.com/rcasto/readability-component" target="_blank">readability-component</a>, it was necessary to develop a function that given a word was able to return the number of syllables in that word.</p>
 <p>This problem is surprisingly difficult to solve across the wide amount of odd cases within <a href="https://en.wikipedia.org/wiki/English_language" target="_blank">our language</a>, so a <a href="https://en.wikipedia.org/wiki/Heuristic_(computer_science)" target="_blank">heuristic</a> is generally a good approach.</p>
 <p>In the readability-component scenario, the main use case for this syllable counting functionality is due to the number of syllables in a piece of text contributing towards the <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease" target="_blank">Flesch reading-ease score</a>. It essentially contributes towards the average number of syllables per word in a piece of text. The higher this contribution is equating to a more difficult piece of text.</p>
 <section><eqn><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mn>206.835</mn><mo>−</mo><mn>1.015</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total words</mtext><mtext>total sentences</mtext></mfrac><mo fence="true">)</mo></mrow><mo>−</mo><mn>84.6</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total syllables</mtext><mtext>total words</mtext></mfrac><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">
