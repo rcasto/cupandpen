@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const jsdom = require('jsdom');
-const readFileToString = require('../lib/util').readFileToString;
+const readFileToString = require('./util').readFileToString;
 
 const fsStatPromise = util.promisify(fs.stat);
 
