@@ -9,6 +9,7 @@ const path = require('path');
 const util = require('util');
 const jsdom = require('jsdom');
 const matter = require('gray-matter');
+const { format } = require('date-fns');
 const readFileToString = require('./util').readFileToString;
 
 const fsStatPromise = util.promisify(fs.stat);
@@ -42,7 +43,7 @@ async function getPublishedContentData(contentPath) {
         name: path.basename(contentPath, markdownFileExtension),
         data: renderedContentData,
         text: renderedContentText,
-        timestamp: stats.mtimeMs
+        timestamp: contentMatter.data.timestamp,
     };
 }
 
@@ -68,10 +69,18 @@ fs.readdir(contentDirectoryPath, async (err, contentNames) => {
             return contentFileInfo2.timestamp - contentFileInfo1.timestamp;
         })
         .forEach((contentFileInfo, contentFileInfoIndex) => {
+            const prevContent = contentFilesInfo[contentFileInfoIndex - 1] || null;
+            const nextContent = contentFilesInfo[contentFileInfoIndex + 1] || null;
+
             contentIndex[contentFileInfo.name] = {
                 ...contentFileInfo,
-                prev: contentFilesInfo[contentFileInfoIndex - 1] || null,
-                next: contentFilesInfo[contentFileInfoIndex + 1] || null
+                timestamp: format(new Date(contentFileInfo.timestamp), 'MMMM d, yyyy'),
+                prev: prevContent ? {
+                    name: prevContent.name,
+                } : null,
+                next: nextContent ? {
+                    name: nextContent.name,
+                } : null,
             };
         });
     

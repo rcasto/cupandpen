@@ -32,6 +32,11 @@ footer {
     --content-border-color: black;
     --font-color: black;
 
+    --readability-font-size: 0.6em;
+    --readability-font-weight: lighter;
+    --readability-margin: 0 0 16px 0;
+    --readability-spacer-margin: 0 12px;
+
     background-color: var(--content-background-color);
     color: var(--font-color);
 }
@@ -80,10 +85,15 @@ footer {
 .content-item {
     background-color: var(--content-background-color);
 }
-.content-item read-ability {
-    --readability-margin: 0 0 16px 0;
+
+:root {
     --readability-font-size: 0.6em;
-    --readability-spacer-margin: 0 12px;
+}
+
+.content-item .content-timestamp {
+    text-align: right;
+    font-size: var(--readability-font-size);
+    font-weight: var(--readability-font-weight);
 }
 
 /* markdown content template styles */
