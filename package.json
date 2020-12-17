@@ -10,7 +10,8 @@
     "build": "npm run build:index && npm run build:views",
     "build:index": "node scripts/build-content.js",
     "build:views": "node scripts/build-views.js",
-    "deploy:gcloud": "gcloud config set project cupandpen-292015 && gcloud app deploy app.yaml"
+    "deploy:gcloud": "gcloud config set project cupandpen-292015 && gcloud app deploy app.yaml",
+    "dev": "http-server ./public"
   },
   "engines": {
     "node": "^12",
