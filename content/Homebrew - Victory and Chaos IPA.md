@@ -1,5 +1,6 @@
-## Homebrew - Victory and Chaos IPA
-
+---
+timestamp: 1577902824047.8992
+---
 Am I good at this yet? Simply put, no. I am still learning and forever will continue to do so.
 
 I'm trying to get back into the home brewing game though, it has been a few months since I last brewed a beer.

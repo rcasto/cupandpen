@@ -1,4 +1,6 @@
-## Web Components
+---
+timestamp: 1578367920108.7803
+---
 Recently I've been revisiting [Web Components](https://www.webcomponents.org/specs). The last time I was played around with this technology was probably around 2 years ago.
 
 It's really interesting to see how they have evolved since then. The API's aren't too much different, of course they have changed some, but the coolest part. Is how viable they have actually become.

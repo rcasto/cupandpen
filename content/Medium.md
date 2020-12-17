@@ -1,4 +1,6 @@
-## Medium
+---
+timestamp: 1577734507942
+---
 Memory broken  
 Thinking disrupted  
 When the medium  

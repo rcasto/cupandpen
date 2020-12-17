@@ -1,5 +1,6 @@
-## Privacy
-
+---
+timestamp: 1578630052320.8765
+---
 Privacy, do we know what that is anymore?
 
 Or are we growing in an age where it is expected that we get less and less of this?

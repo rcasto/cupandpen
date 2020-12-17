@@ -1,5 +1,6 @@
-## COVID-19 Report
-
+---
+timestamp: 1583613215616.3765
+---
 I made something, it's not pretty, but it gives you a view of the raw data around COVID-19 cases.
 
 You can view it at:  

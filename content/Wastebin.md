@@ -1,4 +1,6 @@
-## Wastebin
+---
+timestamp: 1577734570682
+---
 Write and fail  
 Write and fail  
 Crumble the paper  

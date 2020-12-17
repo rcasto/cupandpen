@@ -1,4 +1,6 @@
-## Blinking light
+---
+timestamp: 1577902824046.9407
+---
 Blinking light  
 I watch for you  
 In the dark  

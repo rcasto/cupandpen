@@ -1,5 +1,6 @@
-## code-bed
-
+---
+timestamp: 1589173775480.846
+---
 I've been making a good bit of [web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components) recently. Trying to figure out good ways to distribute and integrate them.
 
 Through this process I've been then incorporating them into this site. So far it's:

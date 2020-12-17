@@ -1,5 +1,6 @@
-## Readability
-
+---
+timestamp: 1589259942311.76
+---
 In working on [readability-component](https://github.com/rcasto/readability-component), it was necessary to develop a function that given a word was able to return the number of syllables in that word.
 
 This problem is surprisingly difficult to solve across the wide amount of odd cases within [our language](https://en.wikipedia.org/wiki/English_language), so a [heuristic](https://en.wikipedia.org/wiki/Heuristic_(computer_science)) is generally a good approach.

@@ -1,4 +1,6 @@
-## Game Development (Collision Detection)
+---
+timestamp: 1577902824047.494
+---
 I've been playing the game [Baba Is You](https://hempuli.com/baba/) recently on my Nintendo Switch.  
 This game has surprisingly simple art, looking like it could have been made in the 80's.  
 The core of the game though, the rules, is something I find super interesting.  

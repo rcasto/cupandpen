@@ -1,5 +1,6 @@
-## Running on Pi
-
+---
+timestamp: 1591551057680
+---
 Ok, so a while back, this site used to be hosted on Azure. For the past 2 months or so however, this site has been running on a Raspberry Pi.
 
 Was it necessary that I move off the cloud to a self hosted solution like this? No, not really. I thought it would be neat though, and be a good learning experience.

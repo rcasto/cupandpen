@@ -1,5 +1,6 @@
-## Mantra
-
+---
+timestamp: 1578464006401
+---
 A long time ago I attempted to make a [mantra](https://en.wikipedia.org/wiki/Mantra) for myself. A succinct phrase/idea that I would attempt to follow for the rest of my life.
 
 I do believe I have improved and followed this mantra for the most part, but of course, as everyone does, they do veer off course at times. That is ok.
