@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 const util = require('util');
 const jsdom = require('jsdom');
+const matter = require('gray-matter');
 const readFileToString = require('./util').readFileToString;
 
 const fsStatPromise = util.promisify(fs.stat);
@@ -33,7 +34,8 @@ md.use(tm, {
 
 async function getPublishedContentData(contentPath) {
     const contentData = await readFileToString(contentPath);
-    const renderedContentData = md.render(contentData);
+    const contentMatter = matter(contentData);
+    const renderedContentData = md.render(contentMatter.content);
     const renderedContentText = JSDOM.fragment(renderedContentData).textContent || '';
     const stats = await fsStatPromise(contentPath);
     return {
