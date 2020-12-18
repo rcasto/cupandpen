@@ -19,8 +19,8 @@ const contentDirectoryPath = path.resolve('./content');
 const markdownFileExtension = '.md';
 const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
-const indexViewOutput = path.resolve('public/index.html');
-const contentViewOutput = path.resolve('public/content');
+const indexViewOutput = path.resolve('docs/index.html');
+const contentViewOutput = path.resolve('docs/content');
 
 const { JSDOM } = jsdom;
 
