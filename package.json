@@ -4,7 +4,7 @@
   "description": "Repository for https://cupandpen.com",
   "main": "server.js",
   "scripts": {
-    "start": "http-server ./public",
+    "start": "http-server ./docs",
     "sitemap": "node scripts/generateSitemap.js",
     "build": "node scripts/build-views.js"
   },

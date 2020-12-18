@@ -7,7 +7,7 @@ const fileStorageService = require('../lib/fileStorageService');
 const fsWriteFilePromise = util.promisify(fs.writeFile);
 
 const siteUrl = 'https://cupandpen.com';
-const sitemapPath = 'public/sitemap.xml';
+const sitemapPath = 'docs/sitemap.xml';
 
 async function generateSitemap() {
     try {
