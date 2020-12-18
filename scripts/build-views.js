@@ -13,7 +13,6 @@ const matter = require('gray-matter');
 const { format } = require('date-fns');
 const readFileToString = require('./util').readFileToString;
 
-const fsStatPromise = util.promisify(fs.stat);
 const writeFilePromise = util.promisify(fs.writeFile);
 
 const contentDirectoryPath = path.resolve('./content');
@@ -51,7 +50,6 @@ async function getPublishedContentData(contentPath) {
     const contentMatter = matter(contentData);
     const renderedContentData = md.render(contentMatter.content);
     const renderedContentText = JSDOM.fragment(renderedContentData).textContent || '';
-    const stats = await fsStatPromise(contentPath);
     return {
         name: path.basename(contentPath, markdownFileExtension),
         data: renderedContentData,
