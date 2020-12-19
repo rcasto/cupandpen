@@ -8,21 +8,21 @@ const md = require('markdown-it')({
 const mila = require('markdown-it-link-attributes');
 const tm = require('markdown-it-texmath');
 const katex = require('katex');
-const jsdom = require('jsdom');
 const matter = require('gray-matter');
 const { format } = require('date-fns');
+const cheerio = require('cheerio');
 const readFileToString = require('./util').readFileToString;
 
 const writeFilePromise = util.promisify(fs.writeFile);
 
 const contentDirectoryPath = path.resolve('./content');
-const markdownFileExtension = '.md';
 const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
 const indexViewOutput = path.resolve('docs/index.html');
 const contentViewOutput = path.resolve('docs/content');
 
-const { JSDOM } = jsdom;
+const markdownFileExtension = '.md';
+const baseUrl = '/cupandpen'
 
 md.use(mila, {
     attrs: {
@@ -41,15 +41,35 @@ function isMarkdownFile(name) {
     return path.extname(name) === markdownFileExtension;
 }
 
+function isRelativeUrl(url) {
+    return url && url[0] === '/';
+}
+
+function rewriteUrl($, cheerioElem, attr = 'href') {
+    const currHref = $(cheerioElem).attr(attr);
+    if (isRelativeUrl(currHref)) {
+        $(cheerioElem).attr(attr, `${baseUrl}${currHref}`);
+    }
+}
+
 async function renderView(viewPath, data) {
-    return await ejs.renderFile(viewPath, data);
+    const viewString = await ejs.renderFile(viewPath, data);
+    const $ = cheerio.load(viewString);
+
+    $('a')
+        .map((_, a) => rewriteUrl($, a));
+    $('link')
+        .map((_, link) => rewriteUrl($, link));
+
+    return $.html();
 }
 
 async function getPublishedContentData(contentPath) {
     const contentData = await readFileToString(contentPath);
     const contentMatter = matter(contentData);
     const renderedContentData = md.render(contentMatter.content);
-    const renderedContentText = JSDOM.fragment(renderedContentData).textContent || '';
+    const $ = cheerio.load(renderedContentData);
+    const renderedContentText = $.root().text() || '';
     return {
         name: path.basename(contentPath, markdownFileExtension),
         data: renderedContentData,
