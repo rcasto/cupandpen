@@ -108,6 +108,8 @@ footer {
 }
 
 .content-item .content {
+    display: flex;
+    flex-direction: column;
     line-height: 1.4em;
 }
 .content-item .content br {
