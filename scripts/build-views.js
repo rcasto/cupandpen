@@ -22,7 +22,7 @@ const indexViewOutput = path.resolve('docs/index.html');
 const contentViewOutput = path.resolve('docs/content');
 
 const markdownFileExtension = '.md';
-const baseUrl = process.env.NODE_ENV === 'development' ? '' : '/cupandpen';
+const baseUrl = '';
 
 md.use(mila, {
     attrs: {

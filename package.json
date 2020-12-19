@@ -4,10 +4,9 @@
   "description": "Repository for https://cupandpen.com",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build:dev && http-server ./docs",
+    "start": "npm run build && http-server ./docs",
     "sitemap": "node scripts/generateSitemap.js",
-    "build": "node scripts/build-views.js",
-    "build:dev": "NODE_ENV=development npm run build"
+    "build": "node scripts/build-views.js"
   },
   "engines": {
     "node": "^12",
