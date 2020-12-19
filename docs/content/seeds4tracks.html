@@ -1,24 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     
-        <title>Cup & Pen - seeds4tracks</title>
+        <title>Cup &amp; Pen - seeds4tracks</title>
     
     
-        <meta name="description" content="Cup & Pen - Recently I have been reviewing old projects and ideas I&#39;ve had, basically going over my portfolio.
+        <meta name="description" content="Cup &amp; Pen - Recently I have been reviewing old projects and ideas I&apos;ve had, basically going over my portfolio.
 I stumbled across an old project that I coined seeds4tracks.
 ...">
     
-    <base href="/cupandpen/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/cupandpen/styles/style.css">
 </head>
 <body>
     <header>
     <h1 class="header">
-        <a href="/">Cup & Pen</a>
+        <a href="/cupandpen/">Cup &amp; Pen</a>
     </h1>
     
 </header>
@@ -28,17 +25,17 @@ I stumbled across an old project that I coined seeds4tracks.
     <read-ability>
         <div slot="readable-text" class="content">
             <h2>seeds4tracks</h2>
-            <p>Recently I have been reviewing old projects and ideas I've had, basically going over my portfolio.</p>
+            <p>Recently I have been reviewing old projects and ideas I&apos;ve had, basically going over my portfolio.</p>
 <p>I stumbled across an old project that I coined seeds4tracks.</p>
 <p>The basic premise of this project being that you input &quot;seeds&quot;, those being artists, tracks, and such. Then these &quot;seeds&quot; are used to generate a set of tracks that hopefully introduces you to some new music to enjoy.</p>
-<p>The project didn't have a GitHub repository or anything set up for it yet, and it was just sitting on my machine, but was completed to a good point of functionality. One caveat being &quot;seeds&quot; can only be artists right now.</p>
+<p>The project didn&apos;t have a GitHub repository or anything set up for it yet, and it was just sitting on my machine, but was completed to a good point of functionality. One caveat being &quot;seeds&quot; can only be artists right now.</p>
 <p>I decided to breathe some life back into this project and get it back up and running.</p>
-<p>With that, I'm happy to say that <a href="https://seeds4tracks.com" target="_blank">seeds4tracks.com</a> is live!</p>
+<p>With that, I&apos;m happy to say that <a href="https://seeds4tracks.com" target="_blank">seeds4tracks.com</a> is live!</p>
 <p>A repository backing it is also now available:<br>
 <a href="https://github.com/rcasto/seeds4tracks" target="_blank">github.com/rcasto/seeds4tracks</a></p>
 <p>Give it a shot, and hopefully find some new jams!</p>
-<p>This project revival is of course very early, but what's there now is at least the core functionality, making use of the <a href="https://developer.spotify.com/documentation/web-api/" target="_blank">Spotify Web API</a>.</p>
-<p>Luckily, the Spotify Web API already has a <a href="https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/" target="_blank">recommendations endpoint</a>. And it nicely does not require any user authentication, meaning users don't need to be logged into Spotify itself.</p>
+<p>This project revival is of course very early, but what&apos;s there now is at least the core functionality, making use of the <a href="https://developer.spotify.com/documentation/web-api/" target="_blank">Spotify Web API</a>.</p>
+<p>Luckily, the Spotify Web API already has a <a href="https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/" target="_blank">recommendations endpoint</a>. And it nicely does not require any user authentication, meaning users don&apos;t need to be logged into Spotify itself.</p>
 <p>The only limitation with this API is that only a maximum of 5 &quot;seed&quot; objects total are able to be sent in a single request.</p>
 <p>To get around this, I generate unique combinations between the input artists of groups of 5, then from these randomly select a certain number of sets to utilize to retrieve recommendation tracks. The results from these requests are aggregated, then de-duped, and then recommendation tracks are randomly picked.</p>
 
@@ -48,28 +45,20 @@ I stumbled across an old project that I coined seeds4tracks.
     </main>
     <footer>
     
-        <a
-            class="footer-links-prev"
-            href="/content/Mantra"
-            aria-label="prevous content piece - Mantra">
-            &#x0227A;
+        <a class="footer-links-prev" href="/cupandpen/content/Mantra" aria-label="prevous content piece - Mantra">
+            &#x227A;
         </a>
     
-    <social-contact
-        github="rcasto"
-        linkedin="rcasto">
+    <social-contact github="rcasto" linkedin="rcasto">
     </social-contact>
     
-        <a
-            class="footer-links-next"
-            href="/content/Web Components"
-            aria-label="next content piece - Web Components">
-            &#x0227B;
+        <a class="footer-links-next" href="/cupandpen/content/Web Components" aria-label="next content piece - Web Components">
+            &#x227B;
         </a>
     
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
 <script async src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
-</body>
-</html>
+
+</body></html>
