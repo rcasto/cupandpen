@@ -2,6 +2,21 @@
     <div class="content-timestamp"><%- timestamp %></div>
     <read-ability>
         <div slot="readable-text" class="content">
+            <div class="sharing-methods">
+                <a
+                    aria-label="Share to Twitter"
+                    href="<%= sharing.twitterUrl %>"
+                    target="_blank">
+                    <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+                </a>
+
+                <a
+                    aria-label="Share via email"
+                    href="mailto:"
+                    target="_blank">
+                    &#9993;
+                </a>
+            </div>
             <h2><%= name %></h2>
             <%- data %>
         </div>

@@ -70,11 +70,15 @@ async function getPublishedContentData(contentPath) {
     const renderedContentData = md.render(contentMatter.content);
     const $ = cheerio.load(renderedContentData);
     const renderedContentText = $.root().text() || '';
+    const contentName = path.basename(contentPath, markdownFileExtension);
     return {
-        name: path.basename(contentPath, markdownFileExtension),
+        name: contentName,
         data: renderedContentData,
         text: renderedContentText,
         timestamp: contentMatter.data.timestamp,
+        sharing: {
+            twitterUrl: `https://twitter.com/intent/tweet?text=${encodeURIComponent('Check this out!')}&url=${encodeURIComponent(`https://cupandpen.com/content/${encodeURIComponent(contentName)}`)}`
+        },
     };
 }
 

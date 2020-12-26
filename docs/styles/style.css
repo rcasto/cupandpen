@@ -109,6 +109,17 @@ footer {
     font-size: var(--readability-font-size);
     font-weight: var(--readability-font-weight);
 }
+.content-item .content .sharing-methods {
+    display: flex;
+    margin: 0 0 0 auto;
+}
+.content-item .content .sharing-methods a {
+    text-align: center;
+    text-decoration: none;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+}
 
 /* markdown content template styles */
 .content-item .content *:not(blockquote) {
