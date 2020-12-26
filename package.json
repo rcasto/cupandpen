@@ -15,16 +15,16 @@
   "author": "Richie Casto (https://github.com/rcasto)",
   "license": "MIT",
   "devDependencies": {
-    "cheerio": "1.0.0-rc.3",
+    "cheerio": "1.0.0-rc.5",
     "date-fns": "2.16.1",
     "ejs": "3.1.5",
     "gray-matter": "4.0.2",
     "http-server": "0.12.3",
     "katex": "0.12.0",
-    "markdown-it": "12.0.3",
+    "markdown-it": "12.0.4",
     "markdown-it-link-attributes": "3.0.0",
     "markdown-it-texmath": "0.8.0",
-    "sitemap": "6.3.3",
+    "sitemap": "6.3.5",
     "xml-formatter": "2.4.0"
   }
 }
