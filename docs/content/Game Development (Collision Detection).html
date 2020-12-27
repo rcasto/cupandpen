@@ -3,8 +3,8 @@
         <title>Cup &amp; Pen - Game Development (Collision Detection)</title>
     
     
-        <meta name="description" content="Cup &amp; Pen - I&apos;ve been playing the game Baba Is You recently on my Nintendo Switch.
-This game has surprisingly simple art, looking like it could have been made in the 80&apos;s.
+        <meta name="description" content="Cup &amp; Pen - I've been playing the game Baba Is You recently on my Nintendo Switch.
+This game has surprisingly simple art, looking like it could have been made in the 80's.
 ...">
     
     <meta charset="UTF-8">
@@ -24,15 +24,26 @@ This game has surprisingly simple art, looking like it could have been made in t
     <div class="content-timestamp">January 1, 2020</div>
     <read-ability>
         <div slot="readable-text" class="content">
+            <div class="sharing-methods">
+                <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+                <a aria-label="Share to Twitter" href="https://twitter.com/intent/tweet?text=Check%20this%20out!&amp;url=https%3A%2F%2Fcupandpen.com%2Fcontent%2FGame%2520Development%2520(Collision%2520Detection)" target="_blank">
+                    <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+                </a>
+
+                <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
+                <a aria-label="Share via email" href="mailto:?subject=Check%20this%20out!&amp;body=https%3A%2F%2Fcupandpen.com%2Fcontent%2FGame%2520Development%2520(Collision%2520Detection)" target="_blank">
+                    ✉
+                </a>
+            </div>
             <h2>Game Development (Collision Detection)</h2>
-            <p>I&apos;ve been playing the game <a href="https://hempuli.com/baba/" target="_blank">Baba Is You</a> recently on my Nintendo Switch.<br>
-This game has surprisingly simple art, looking like it could have been made in the 80&apos;s.<br>
+            <p>I've been playing the game <a href="https://hempuli.com/baba/" target="_blank">Baba Is You</a> recently on my Nintendo Switch.<br>
+This game has surprisingly simple art, looking like it could have been made in the 80's.<br>
 The core of the game though, the rules, is something I find super interesting.</p>
-<p>Playing this game has made me want to make a game. I think it&apos;s the simplicity of the art and the demonstration that the core mechanics of the game are what really matter.</p>
-<p>So I&apos;ve went about learning how to make a game.<br>
+<p>Playing this game has made me want to make a game. I think it's the simplicity of the art and the demonstration that the core mechanics of the game are what really matter.</p>
+<p>So I've went about learning how to make a game.<br>
 I want to make it for the web first, so I started re-learning how to use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API" target="_blank">Canvas Web API</a>.<br>
 Then trying to think through the basics of the game animation loop.  MDN also has a good article on the <a href="https://developer.mozilla.org/en-US/docs/Games/Anatomy" target="_blank">anatomy of a web game</a>.</p>
-<p>Here is the model I&apos;ve come up with to start:</p>
+<p>Here is the model I've come up with to start:</p>
 <ol>
 <li>Get all objects in the world</li>
 <li>Filter to objects in the particular scene that can move/animate</li>
@@ -42,10 +53,10 @@ Then trying to think through the basics of the game animation loop.  MDN also ha
 <li>Repeat (schedule next animation tick)</li>
 </ol>
 <p>Trying my hand at a 2D game.<br>
-To check for collisions I&apos;ve decided to use a <a href="https://en.wikipedia.org/wiki/Quadtree" target="_blank">QuadTree</a>, which can break down the 2D space and reduce the # of collision comparisons needed to be made between objects.</p>
+To check for collisions I've decided to use a <a href="https://en.wikipedia.org/wiki/Quadtree" target="_blank">QuadTree</a>, which can break down the 2D space and reduce the # of collision comparisons needed to be made between objects.</p>
 <p>In incorporating a QuadTree, I went ahead and built my own little javascript library called <a href="https://github.com/rcasto/simplequad" target="_blank">simplequad</a>.</p>
 <p>It is meant to aid in doing one thing well and that is collision detection. You pass in objects implementing a <code>Bound</code> interface. This allows simplequad to then bucket your objects appropriately. Then you can query the QuadTree produced with a boundary to see what objects are in said boundary window. If 2 objects are within the bounds of 1 objects bounding container, you have a collision.</p>
-<p>On to the next topic to learn more on&#x2026;collision resolution. I can detect collisions pretty well, but not so great at resolving them at the moment.</p>
+<p>On to the next topic to learn more on…collision resolution. I can detect collisions pretty well, but not so great at resolving them at the moment.</p>
 
         </div>
     </read-ability>
@@ -54,19 +65,19 @@ To check for collisions I&apos;ve decided to use a <a href="https://en.wikipedia
     <footer>
     
         <a class="footer-links-prev" href="/content/Homebrew - Victory and Chaos IPA" aria-label="prevous content piece - Homebrew - Victory and Chaos IPA">
-            &#x227A;
+            ≺
         </a>
     
     <social-contact github="rcasto" linkedin="rcasto">
     </social-contact>
     
-        <a class="footer-links-next" href="/content/Don&apos;t worry" aria-label="next content piece - Don&apos;t worry">
-            &#x227B;
+        <a class="footer-links-next" href="/content/Don't worry" aria-label="next content piece - Don't worry">
+            ≻
         </a>
     
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
-<script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
-<script async src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
+<script async="" src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
+<script async="" src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
 
 </body></html>

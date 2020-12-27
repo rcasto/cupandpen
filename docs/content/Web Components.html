@@ -3,8 +3,8 @@
         <title>Cup &amp; Pen - Web Components</title>
     
     
-        <meta name="description" content="Cup &amp; Pen - Recently I&apos;ve been revisiting Web Components. The last time I was played around with this technology was probably around 2 years ago.
-It&apos;s really interesting to...">
+        <meta name="description" content="Cup &amp; Pen - Recently I've been revisiting Web Components. The last time I was played around with this technology was probably around 2 years ago.
+It's really interesting to...">
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,17 +23,28 @@ It&apos;s really interesting to...">
     <div class="content-timestamp">January 6, 2020</div>
     <read-ability>
         <div slot="readable-text" class="content">
+            <div class="sharing-methods">
+                <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+                <a aria-label="Share to Twitter" href="https://twitter.com/intent/tweet?text=Check%20this%20out!&amp;url=https%3A%2F%2Fcupandpen.com%2Fcontent%2FWeb%2520Components" target="_blank">
+                    <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+                </a>
+
+                <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
+                <a aria-label="Share via email" href="mailto:?subject=Check%20this%20out!&amp;body=https%3A%2F%2Fcupandpen.com%2Fcontent%2FWeb%2520Components" target="_blank">
+                    ✉
+                </a>
+            </div>
             <h2>Web Components</h2>
-            <p>Recently I&apos;ve been revisiting <a href="https://www.webcomponents.org/specs" target="_blank">Web Components</a>. The last time I was played around with this technology was probably around 2 years ago.</p>
-<p>It&apos;s really interesting to see how they have evolved since then. The API&apos;s aren&apos;t too much different, of course they have changed some, but the coolest part. Is how viable they have actually become.</p>
-<p>They are a lot more <a href="https://caniuse.com/#search=web%20components" target="_blank">widely supported by browsers now</a>. Of course they are not supported by all, and if you still want to support older browsers, well you are a little fucked, but they simply won&apos;t render and you can provide a fallback scenario by providing HTML within your custom element tag.</p>
+            <p>Recently I've been revisiting <a href="https://www.webcomponents.org/specs" target="_blank">Web Components</a>. The last time I was played around with this technology was probably around 2 years ago.</p>
+<p>It's really interesting to see how they have evolved since then. The API's aren't too much different, of course they have changed some, but the coolest part. Is how viable they have actually become.</p>
+<p>They are a lot more <a href="https://caniuse.com/#search=web%20components" target="_blank">widely supported by browsers now</a>. Of course they are not supported by all, and if you still want to support older browsers, well you are a little fucked, but they simply won't render and you can provide a fallback scenario by providing HTML within your custom element tag.</p>
 <p>Anyway, I went ahead and made a few, and they are incorporated in this site now. One in the footer, and one at the top of each content article, like this one.</p>
 <p>One of them is a <a href="https://github.com/rcasto/social-contact" target="_blank">simple web component to display social network contact info</a> via social network branded buttons/logos.
 It simply displays them in a block fashion, side by side, only renderng the social networks you provide info for.</p>
 <p>The second one <a href="https://github.com/rcasto/readability-component" target="_blank">displays the readability of a piece of text content</a> and also the average time it would take to read this same content. This one was interesting as it also had me learn about how to exactly calcule or estimate the readability of a piece of text content.</p>
 <p>Through creating both of these components, I also learned about a new way to distrubute scripts or share these web components and that is through an <a href="https://caniuse.com/#feat=es6-module" target="_blank">ES6 module script tag</a>. You can now point script tags at modules, which is freaking awesome. And this is also relatively widely supported.</p>
-<p>These components are literally the only script tags included on this site right now. This site has practically no scripting as it is all server rendered. If your browser doesn&apos;t support web components they simply won&apos;t render, so your experience will be the same as before.</p>
-<p>On that note, this site will likely never be fancy, I care less and less about that and more and more about keeping it simple and accessible. Anyway, the components I created are on my <a href="https://github.com/rcasto" target="_blank">GitHub</a> and are completely open source, feel free to tweak them or use them on your own site or wherever. And if you don&apos;t like something or there is a bug, open up an issue and I might fix it or yell back haha, I play.</p>
+<p>These components are literally the only script tags included on this site right now. This site has practically no scripting as it is all server rendered. If your browser doesn't support web components they simply won't render, so your experience will be the same as before.</p>
+<p>On that note, this site will likely never be fancy, I care less and less about that and more and more about keeping it simple and accessible. Anyway, the components I created are on my <a href="https://github.com/rcasto" target="_blank">GitHub</a> and are completely open source, feel free to tweak them or use them on your own site or wherever. And if you don't like something or there is a bug, open up an issue and I might fix it or yell back haha, I play.</p>
 
         </div>
     </read-ability>
@@ -42,19 +53,19 @@ It simply displays them in a block fashion, side by side, only renderng the soci
     <footer>
     
         <a class="footer-links-prev" href="/content/seeds4tracks" aria-label="prevous content piece - seeds4tracks">
-            &#x227A;
+            ≺
         </a>
     
     <social-contact github="rcasto" linkedin="rcasto">
     </social-contact>
     
         <a class="footer-links-next" href="/content/pi-up" aria-label="next content piece - pi-up">
-            &#x227B;
+            ≻
         </a>
     
 </footer>
     <script src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
-<script async src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
-<script async src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
+<script async="" src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
+<script async="" src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
 
 </body></html>
