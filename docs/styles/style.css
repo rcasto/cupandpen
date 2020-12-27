@@ -120,6 +120,9 @@ footer {
     width: 32px;
     height: 32px;
 }
+.content-item .content .sharing-methods a:hover, .content-item .content .sharing-methods a:active {
+    border: 1px solid black;
+}
 
 /* markdown content template styles */
 .content-item .content *:not(blockquote) {
