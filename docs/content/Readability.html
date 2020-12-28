@@ -35,9 +35,9 @@ This prob...">
                 </a>
             </div>
             <h2>Readability</h2>
-            <p>In working on <a href="https://github.com/rcasto/readability-component" target="_blank">readability-component</a>, it was necessary to develop a function that given a word was able to return the number of syllables in that word.</p>
-<p>This problem is surprisingly difficult to solve across the wide amount of odd cases within <a href="https://en.wikipedia.org/wiki/English_language" target="_blank">our language</a>, so a <a href="https://en.wikipedia.org/wiki/Heuristic_(computer_science)" target="_blank">heuristic</a> is generally a good approach.</p>
-<p>In the readability-component scenario, the main use case for this syllable counting functionality is due to the number of syllables in a piece of text contributing towards the <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease" target="_blank">Flesch reading-ease score</a>. It essentially contributes towards the average number of syllables per word in a piece of text. The higher this contribution is equating to a more difficult piece of text.</p>
+            <p>In working on <a href="https://github.com/rcasto/readability-component" target="_blank" rel="noopener noreferrer">readability-component</a>, it was necessary to develop a function that given a word was able to return the number of syllables in that word.</p>
+<p>This problem is surprisingly difficult to solve across the wide amount of odd cases within <a href="https://en.wikipedia.org/wiki/English_language" target="_blank" rel="noopener noreferrer">our language</a>, so a <a href="https://en.wikipedia.org/wiki/Heuristic_(computer_science)" target="_blank" rel="noopener noreferrer">heuristic</a> is generally a good approach.</p>
+<p>In the readability-component scenario, the main use case for this syllable counting functionality is due to the number of syllables in a piece of text contributing towards the <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease" target="_blank" rel="noopener noreferrer">Flesch reading-ease score</a>. It essentially contributes towards the average number of syllables per word in a piece of text. The higher this contribution is equating to a more difficult piece of text.</p>
 <section><eqn><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mn>206.835</mn><mo>−</mo><mn>1.015</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total&nbsp;words</mtext><mtext>total&nbsp;sentences</mtext></mfrac><mo fence="true">)</mo></mrow><mo>−</mo><mn>84.6</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total&nbsp;syllables</mtext><mtext>total&nbsp;words</mtext></mfrac><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">
 {\displaystyle 206.835-1.015\left({\frac {\text{total words}}{\text{total sentences}}}\right)-84.6\left({\frac {\text{total syllables}}{\text{total words}}}\right)}
 </annotation></semantics></math></span></eqn></section>
@@ -62,7 +62,7 @@ This prob...">
 <p>The opposite end of the spectrum is using a completely rules based approach. Given a word, a series of rules, such as the above, is ran against the word, then a number representing the amount of syllables for that word is output.</p>
 <p>Typically the best approach though, seems to be a hybrid. Storing a chosen corpus of words mapping to there syllable counts for lookup, then using rules based syllable count approaches on words not contained in this "offline" dictionary.</p>
 <p>This is actually how the readability-component works.</p>
-<p>Before selecting an offline dictionary, I wanted to understand how the rules above performed on a set of words. For this, I used hyphenation data made available via the <a href="https://en.wikipedia.org/wiki/Moby_Project" target="_blank">Moby Project</a>.</p>
+<p>Before selecting an offline dictionary, I wanted to understand how the rules above performed on a set of words. For this, I used hyphenation data made available via the <a href="https://en.wikipedia.org/wiki/Moby_Project" target="_blank" rel="noopener noreferrer">Moby Project</a>.</p>
 <table>
 <thead>
 <tr>
@@ -105,29 +105,29 @@ This prob...">
 </tr>
 </tbody>
 </table>
-<p>The <a href="https://github.com/rcasto/readability-component/tree/master/data" target="_blank">code used to generate this performance test</a> can be found in the <a href="https://github.com/rcasto/readability-component" target="_blank">readability-component repository</a>.</p>
+<p>The <a href="https://github.com/rcasto/readability-component/tree/master/data" target="_blank" rel="noopener noreferrer">code used to generate this performance test</a> can be found in the <a href="https://github.com/rcasto/readability-component" target="_blank" rel="noopener noreferrer">readability-component repository</a>.</p>
 <p>Looking at the data above, it can be seen that the rules do surprisingly well. Correctly identifiying around 70% of syllable counts of words in the Moby Project corpus.</p>
 <p>Then, when the rules are wrong, they are on average off by around 1 syllable.</p>
 <p>Still though, there are around 43,000 words on which it was wrong. That's still sizable, but is all that needs to be focused on, since the rules work well in other cases.</p>
 <p>I wanted to trim this further, as this dictionary would be served in the readability-component javascript bundle. With that, I wanted to store locally what would be the most impactful. My theory may not be the best, but is simple enough. Only store words for which the rules were incorrect and are also considered common words.</p>
-<p>For a corpus of common words I made use of the <a href="https://github.com/first20hours/google-10000-english" target="_blank">10,000 most common English words derived from Google's Trillion Word Corpus</a>.</p>
+<p>For a corpus of common words I made use of the <a href="https://github.com/first20hours/google-10000-english" target="_blank" rel="noopener noreferrer">10,000 most common English words derived from Google's Trillion Word Corpus</a>.</p>
 <p>From the 43,000 cases where the rules were incorrect, I then ran these words against the common words list to see if they were common. The result being around 1,000 common words.</p>
-<p>These are the words that make up <a href="https://github.com/rcasto/readability-component/blob/master/data/syllableCount.json" target="_blank">readability-component's offline dictionary</a>.</p>
+<p>These are the words that make up <a href="https://github.com/rcasto/readability-component/blob/master/data/syllableCount.json" target="_blank" rel="noopener noreferrer">readability-component's offline dictionary</a>.</p>
 <h3>Alternative readability tests</h3>
-<p>There are <a href="https://en.wikipedia.org/wiki/List_of_readability_tests_and_formulas" target="_blank">more readability formulas than what is mentioned here</a>. Although the Flesch-Kincaid readability ease is one of the most popular. Another popular one I'll call out is <a href="https://en.wikipedia.org/wiki/Dale%E2%80%93Chall_readability_formula" target="_blank">Dale-Chall Readability Formula</a>.</p>
+<p>There are <a href="https://en.wikipedia.org/wiki/List_of_readability_tests_and_formulas" target="_blank" rel="noopener noreferrer">more readability formulas than what is mentioned here</a>. Although the Flesch-Kincaid readability ease is one of the most popular. Another popular one I'll call out is <a href="https://en.wikipedia.org/wiki/Dale%E2%80%93Chall_readability_formula" target="_blank" rel="noopener noreferrer">Dale-Chall Readability Formula</a>.</p>
 <section><eqn><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mn>0.1579</mn><mrow><mo fence="true">(</mo><mfrac><mtext>difficult&nbsp;words</mtext><mtext>words</mtext></mfrac><mo>×</mo><mn>100</mn><mo fence="true">)</mo></mrow><mo>+</mo><mn>0.0496</mn><mrow><mo fence="true">(</mo><mfrac><mtext>words</mtext><mtext>sentences</mtext></mfrac><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">
 {\displaystyle 0.1579\left({\frac {\text{difficult words}}{\text{words}}}\times 100\right)+0.0496\left({\frac {\text{words}}{\text{sentences}}}\right)}
 </annotation></semantics></math></span></eqn></section>
-<p>In this case, a <a href="https://www.readabilityformulas.com/articles/dale-chall-readability-word-list.php" target="_blank">corpus of words is used</a>, that is primarily driven by familiarity or understanding by at least 80% of 5th graders. If a word is not in the corpus, it is considered difficult.</p>
+<p>In this case, a <a href="https://www.readabilityformulas.com/articles/dale-chall-readability-word-list.php" target="_blank" rel="noopener noreferrer">corpus of words is used</a>, that is primarily driven by familiarity or understanding by at least 80% of 5th graders. If a word is not in the corpus, it is considered difficult.</p>
 <p>It should be noted that this readability metric has nothing to do with syllable counting.</p>
 <h3>Resources</h3>
 <ul>
-<li><a href="https://www.tug.org/docs/liang/liang-thesis.pdf" target="_blank">https://www.tug.org/docs/liang/liang-thesis.pdf</a></li>
-<li><a href="https://dl.acm.org/doi/10.1145/364995.365002" target="_blank">https://dl.acm.org/doi/10.1145/364995.365002</a></li>
-<li><a href="https://eprints.soton.ac.uk/264285/1/MarchandAdsettDamper_ISCA07.pdf" target="_blank">https://eprints.soton.ac.uk/264285/1/MarchandAdsettDamper_ISCA07.pdf</a></li>
-<li><a href="https://dspace.mit.edu/bitstream/handle/1721.1/16397/03491095-MIT.pdf" target="_blank">https://dspace.mit.edu/bitstream/handle/1721.1/16397/03491095-MIT.pdf</a></li>
-<li><a href="https://sites.cs.ucsb.edu/~pconrad/cs8/10F/labs/lab10/" target="_blank">https://sites.cs.ucsb.edu/~pconrad/cs8/10F/labs/lab10/</a></li>
-<li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1144/handouts/210%20Assignment%204.pdf" target="_blank">https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1144/handouts/210%20Assignment%204.pdf</a></li>
+<li><a href="https://www.tug.org/docs/liang/liang-thesis.pdf" target="_blank" rel="noopener noreferrer">https://www.tug.org/docs/liang/liang-thesis.pdf</a></li>
+<li><a href="https://dl.acm.org/doi/10.1145/364995.365002" target="_blank" rel="noopener noreferrer">https://dl.acm.org/doi/10.1145/364995.365002</a></li>
+<li><a href="https://eprints.soton.ac.uk/264285/1/MarchandAdsettDamper_ISCA07.pdf" target="_blank" rel="noopener noreferrer">https://eprints.soton.ac.uk/264285/1/MarchandAdsettDamper_ISCA07.pdf</a></li>
+<li><a href="https://dspace.mit.edu/bitstream/handle/1721.1/16397/03491095-MIT.pdf" target="_blank" rel="noopener noreferrer">https://dspace.mit.edu/bitstream/handle/1721.1/16397/03491095-MIT.pdf</a></li>
+<li><a href="https://sites.cs.ucsb.edu/~pconrad/cs8/10F/labs/lab10/" target="_blank" rel="noopener noreferrer">https://sites.cs.ucsb.edu/~pconrad/cs8/10F/labs/lab10/</a></li>
+<li><a href="https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1144/handouts/210%20Assignment%204.pdf" target="_blank" rel="noopener noreferrer">https://web.stanford.edu/class/archive/cs/cs106a/cs106a.1144/handouts/210%20Assignment%204.pdf</a></li>
 </ul>
 
         </div>

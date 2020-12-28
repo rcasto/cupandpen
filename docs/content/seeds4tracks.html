@@ -41,12 +41,12 @@ I stumbled across an old project that I coined seeds4tracks.
 <p>The basic premise of this project being that you input "seeds", those being artists, tracks, and such. Then these "seeds" are used to generate a set of tracks that hopefully introduces you to some new music to enjoy.</p>
 <p>The project didn't have a GitHub repository or anything set up for it yet, and it was just sitting on my machine, but was completed to a good point of functionality. One caveat being "seeds" can only be artists right now.</p>
 <p>I decided to breathe some life back into this project and get it back up and running.</p>
-<p>With that, I'm happy to say that <a href="https://seeds4tracks.com" target="_blank">seeds4tracks.com</a> is live!</p>
+<p>With that, I'm happy to say that <a href="https://seeds4tracks.com" target="_blank" rel="noopener noreferrer">seeds4tracks.com</a> is live!</p>
 <p>A repository backing it is also now available:<br>
-<a href="https://github.com/rcasto/seeds4tracks" target="_blank">github.com/rcasto/seeds4tracks</a></p>
+<a href="https://github.com/rcasto/seeds4tracks" target="_blank" rel="noopener noreferrer">github.com/rcasto/seeds4tracks</a></p>
 <p>Give it a shot, and hopefully find some new jams!</p>
-<p>This project revival is of course very early, but what's there now is at least the core functionality, making use of the <a href="https://developer.spotify.com/documentation/web-api/" target="_blank">Spotify Web API</a>.</p>
-<p>Luckily, the Spotify Web API already has a <a href="https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/" target="_blank">recommendations endpoint</a>. And it nicely does not require any user authentication, meaning users don't need to be logged into Spotify itself.</p>
+<p>This project revival is of course very early, but what's there now is at least the core functionality, making use of the <a href="https://developer.spotify.com/documentation/web-api/" target="_blank" rel="noopener noreferrer">Spotify Web API</a>.</p>
+<p>Luckily, the Spotify Web API already has a <a href="https://developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/" target="_blank" rel="noopener noreferrer">recommendations endpoint</a>. And it nicely does not require any user authentication, meaning users don't need to be logged into Spotify itself.</p>
 <p>The only limitation with this API is that only a maximum of 5 "seed" objects total are able to be sent in a single request.</p>
 <p>To get around this, I generate unique combinations between the input artists of groups of 5, then from these randomly select a certain number of sets to utilize to retrieve recommendation tracks. The results from these requests are aggregated, then de-duped, and then recommendation tracks are randomly picked.</p>
 

@@ -78,6 +78,6 @@ Unfortunately there isn't a standard way to do this across all routers, but luck
 
 Below are just some additional resources that I had used when configuring this site to run on a Raspberry Pi.  Some of the resources are particularly related to the setup and infrastructure of this site, but they may be useful to some folks.
 
-- https://www.digitalocean.com/community/tutorials/how-to-redirect-www-to-non-www-with-nginx-on-centos-7
-- https://github.com/nodesource/distributions/blob/master/README.md#debinstall
-- https://certbot.eff.org/lets-encrypt/debianbuster-nginx
+- [https://www.digitalocean.com/community/tutorials/how-to-redirect-www-to-non-www-with-nginx-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-redirect-www-to-non-www-with-nginx-on-centos-7)
+- [https://github.com/nodesource/distributions/blob/master/README.md#debinstall](https://github.com/nodesource/distributions/blob/master/README.md#debinstall)
+- [https://certbot.eff.org/lets-encrypt/debianbuster-nginx](https://certbot.eff.org/lets-encrypt/debianbuster-nginx)
