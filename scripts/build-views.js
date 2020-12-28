@@ -23,6 +23,7 @@ const contentViewOutput = path.resolve('docs/content');
 // const baseUrl = '';
 
 md.use(mila, {
+    pattern: /^(https|http):/,
     attrs: {
         target: '_blank',
         rel: 'noopener noreferrer'
