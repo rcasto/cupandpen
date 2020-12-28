@@ -1,38 +1,40 @@
 const fs = require('fs');
-const util = require('util');
 const { SitemapStream, streamToPromise } = require('sitemap');
 const formatXML = require('xml-formatter');
-const fileStorageService = require('../lib/fileStorageService');
-
-const fsWriteFilePromise = util.promisify(fs.writeFile);
+const { getContentFiles } = require('./util');
 
 const siteUrl = 'https://cupandpen.com';
 const sitemapPath = 'docs/sitemap.xml';
 
 async function generateSitemap() {
-    try {
-        const allContentMetadata = await fileStorageService.getAllContent();
-        const sitemap = new SitemapStream({
-            hostname: siteUrl
-        });
-        const currentDate = new Date();
+    const contentFiles = await getContentFiles();
+    const sitemap = new SitemapStream({
+        hostname: siteUrl
+    });
+    const currentDate = new Date();
 
-        allContentMetadata
-            .forEach(contentMetadata => {
-                sitemap.write({
-                    url: `${siteUrl}/content/${contentMetadata.name}`,
-                    lastmod: currentDate,
-                });
+    // add content pages
+    contentFiles
+        .forEach(contentFile => {
+            sitemap.write({
+                url: `${siteUrl}/content/${contentFile.name}`,
+                lastmod: currentDate,
             });
-        sitemap.end();
+        });
 
-        const sitemapBuffer = await streamToPromise(sitemap);
-        const sitemapString = sitemapBuffer.toString();
+    // add index/home page
+    sitemap.write({
+        url: `${siteUrl}`,
+        lastmod: currentDate,
+    });
 
-        await fsWriteFilePromise(sitemapPath, formatXML(sitemapString));
-    } catch (err) {
-        console.error(err);
-    }
+    sitemap.end();
+
+    const sitemapBuffer = await streamToPromise(sitemap);
+    const sitemapString = sitemapBuffer.toString();
+
+    await fs.promises.writeFile(sitemapPath, formatXML(sitemapString));
 }
 
-generateSitemap();
+generateSitemap()
+    .catch(err => console.error(err));
