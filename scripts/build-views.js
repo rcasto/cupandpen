@@ -25,6 +25,7 @@ const contentViewOutput = path.resolve('docs/content');
 md.use(mila, {
     attrs: {
         target: '_blank',
+        rel: 'noopener noreferrer'
     }
 });
 md.use(tm, {
