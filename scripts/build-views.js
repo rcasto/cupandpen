@@ -11,18 +11,16 @@ const katex = require('katex');
 const matter = require('gray-matter');
 const { format } = require('date-fns');
 const cheerio = require('cheerio');
-const readFileToString = require('./util').readFileToString;
+const { /*isRelativeUrl,*/ getContentName, getContentFiles, readFileToString } = require('./util');
 
 const writeFilePromise = util.promisify(fs.writeFile);
 
-const contentDirectoryPath = path.resolve('./content');
 const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
 const indexViewOutput = path.resolve('docs/index.html');
 const contentViewOutput = path.resolve('docs/content');
 
-const markdownFileExtension = '.md';
-const baseUrl = '';
+// const baseUrl = '';
 
 md.use(mila, {
     attrs: {
@@ -31,46 +29,38 @@ md.use(mila, {
 });
 md.use(tm, {
     engine: katex,
-    delimiters:'dollars',
+    delimiters: 'dollars',
     katexOptions: {
         output: 'mathml'
     }
 });
 
-function isMarkdownFile(name) {
-    return path.extname(name) === markdownFileExtension;
-}
-
-function isRelativeUrl(url) {
-    return url && url[0] === '/';
-}
-
-function rewriteUrl($, cheerioElem, attr = 'href') {
-    const currHref = $(cheerioElem).attr(attr);
-    if (isRelativeUrl(currHref)) {
-        $(cheerioElem).attr(attr, `${baseUrl}${currHref}`);
-    }
-}
+// function rewriteUrl($, cheerioElem, attr = 'href') {
+//     const currHref = $(cheerioElem).attr(attr);
+//     if (isRelativeUrl(currHref)) {
+//         $(cheerioElem).attr(attr, `${baseUrl}${currHref}`);
+//     }
+// }
 
 async function renderView(viewPath, data) {
     const viewString = await ejs.renderFile(viewPath, data);
     const $ = cheerio.load(viewString);
 
-    $('a')
-        .map((_, a) => rewriteUrl($, a));
-    $('link')
-        .map((_, link) => rewriteUrl($, link));
+    // $('a')
+    //     .map((_, a) => rewriteUrl($, a));
+    // $('link')
+    //     .map((_, link) => rewriteUrl($, link));
 
     return $.html();
 }
 
-async function getPublishedContentData(contentPath) {
+async function getContentData(contentPath) {
     const contentData = await readFileToString(contentPath);
     const contentMatter = matter(contentData);
     const renderedContentData = md.render(contentMatter.content);
     const $ = cheerio.load(renderedContentData);
     const renderedContentText = $.root().text() || '';
-    const contentName = path.basename(contentPath, markdownFileExtension);
+    const contentName = getContentName(contentPath);
     const sharingText = encodeURIComponent('Check this out!');
     const sharingUrl = encodeURIComponent(`https://cupandpen.com/content/${encodeURIComponent(contentName)}`);
     return {
@@ -119,39 +109,34 @@ async function generateViews(contentIndex) {
     }
 }
 
-fs.readdir(contentDirectoryPath, async (err, contentNames) => {
-    if (err) {
-        throw err;
-    }
+getContentFiles()
+    .then(async contentFiles => {
+        const contentFilesInfo = await Promise.all(
+            contentFiles
+                .map(contentFile => getContentData(contentFile.path)));
+        const contentIndex = {};
 
-    const contentFilesInfo = await Promise.all(
-        contentNames
-            .filter(isMarkdownFile)
-            .map(contentName => path.resolve(contentDirectoryPath, contentName))
-            .map(getPublishedContentData)
-    );
-    const contentIndex = {};
+        contentFilesInfo
+            .sort((contentFileInfo1, contentFileInfo2) => {
+                return contentFileInfo2.timestamp - contentFileInfo1.timestamp;
+            })
+            .forEach((contentFileInfo, contentFileInfoIndex) => {
+                const prevContent = contentFilesInfo[contentFileInfoIndex - 1] || null;
+                const nextContent = contentFilesInfo[contentFileInfoIndex + 1] || null;
 
-    contentFilesInfo
-        .sort((contentFileInfo1, contentFileInfo2) => {
-            return contentFileInfo2.timestamp - contentFileInfo1.timestamp;
-        })
-        .forEach((contentFileInfo, contentFileInfoIndex) => {
-            const prevContent = contentFilesInfo[contentFileInfoIndex - 1] || null;
-            const nextContent = contentFilesInfo[contentFileInfoIndex + 1] || null;
+                contentIndex[contentFileInfo.name] = {
+                    ...contentFileInfo,
+                    timestamp: format(new Date(contentFileInfo.timestamp), 'MMMM d, yyyy'),
+                    prev: prevContent ? {
+                        name: prevContent.name,
+                    } : null,
+                    next: nextContent ? {
+                        name: nextContent.name,
+                    } : null,
+                };
+            });
 
-            contentIndex[contentFileInfo.name] = {
-                ...contentFileInfo,
-                timestamp: format(new Date(contentFileInfo.timestamp), 'MMMM d, yyyy'),
-                prev: prevContent ? {
-                    name: prevContent.name,
-                } : null,
-                next: nextContent ? {
-                    name: nextContent.name,
-                } : null,
-            };
-        });
-
-    generateViews(contentIndex)
-        .catch(err => console.error(err));
-});
+        generateViews(contentIndex)
+            .catch(err => console.error(err));
+    })
+    .catch(err => console.error(err));

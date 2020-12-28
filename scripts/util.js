@@ -1,4 +1,20 @@
 const fs = require('fs');
+const path = require('path');
+
+const contentDirectoryPath = path.resolve('./content');
+const markdownFileExtension = '.md';
+
+function isRelativeUrl(url) {
+    return url && url[0] === '/';
+}
+
+function isMarkdownFile(name) {
+    return path.extname(name) === markdownFileExtension;
+}
+
+function getContentName(contentName) {
+    return path.basename(contentName, markdownFileExtension)
+}
 
 // A helper method used to read a Node.js readable stream into string
 async function streamToString(readableStream) {
@@ -20,6 +36,20 @@ async function readFileToString(filePath) {
     return streamToString(readerStream);
 }
 
+async function getContentFiles() {
+    return fs.promises.readdir(contentDirectoryPath)
+        .then(contentFileNames => (
+            contentFileNames
+                .filter(isMarkdownFile)
+                .map(contentFileName => ({
+                    name: contentFileName,
+                    path: path.resolve(contentDirectoryPath, contentFileName)
+                }))));
+}
+
 module.exports = {
+    isRelativeUrl,
+    getContentName,
     readFileToString,
+    getContentFiles,
 };
