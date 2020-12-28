@@ -8,7 +8,7 @@
     "start:server": "http-server ./docs",
     "sitemap": "node scripts/generateSitemap.js",
     "build": "node scripts/build-views.js",
-    "watch-views": "chokidar 'views/**/*.ejs' -c 'npm run build' --initial"
+    "watch-views": "chokidar 'views/**/*.ejs' 'content/*.md' -c 'npm run build' --initial"
   },
   "engines": {
     "node": "^12",
