@@ -1,24 +1,24 @@
 <article class="content-item">
+    <div class="sharing-methods">
+        <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+        <a
+            aria-label="Share to Twitter"
+            href="<%= sharing.twitter %>"
+            target="_blank">
+            <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+        </a>
+
+        <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
+        <a
+            aria-label="Share via email"
+            href="<%= sharing.mailto %>"
+            target="_blank">
+            &#9993;
+        </a>
+    </div>
     <div class="content-timestamp"><%- timestamp %></div>
     <read-ability>
         <div slot="readable-text" class="content">
-            <div class="sharing-methods">
-                <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
-                <a
-                    aria-label="Share to Twitter"
-                    href="<%= sharing.twitter %>"
-                    target="_blank">
-                    <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
-                </a>
-
-                <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
-                <a
-                    aria-label="Share via email"
-                    href="<%= sharing.mailto %>"
-                    target="_blank">
-                    &#9993;
-                </a>
-            </div>
             <h2><%= name %></h2>
             <%- data %>
         </div>
