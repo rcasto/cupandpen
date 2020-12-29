@@ -4,9 +4,11 @@
   "description": "Repository for https://cupandpen.com",
   "main": "server.js",
   "scripts": {
-    "start": "npm run build && http-server ./docs",
+    "start": "concurrently 'npm:watch-views' 'npm:start:server'",
+    "start:server": "http-server ./docs",
     "sitemap": "node scripts/generateSitemap.js",
-    "build": "node scripts/build-views.js"
+    "build": "node scripts/build-views.js",
+    "watch-views": "chokidar 'views/**/*.ejs' 'content/*.md' -c 'npm run build' --initial"
   },
   "engines": {
     "node": "^12",
@@ -16,6 +18,8 @@
   "license": "MIT",
   "devDependencies": {
     "cheerio": "1.0.0-rc.5",
+    "chokidar-cli": "2.1.0",
+    "concurrently": "5.3.0",
     "date-fns": "2.16.1",
     "ejs": "3.1.5",
     "gray-matter": "4.0.2",
