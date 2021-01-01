@@ -65,6 +65,9 @@ async function getContentData(contentPath) {
     const contentName = getContentName(contentPath);
     const sharingText = encodeURIComponent('Check this out!');
     const sharingUrl = encodeURIComponent(`https://cupandpen.com/content/${encodeURIComponent(contentName)}`);
+    const contentDeps = (contentMatter.data.deps || '')
+        .split(',')
+        .filter(dep => !!dep);
     return {
         name: contentName,
         data: renderedContentData,
@@ -74,6 +77,9 @@ async function getContentData(contentPath) {
             twitter: `https://twitter.com/intent/tweet?text=${sharingText}&url=${sharingUrl}`,
             mailto: `mailto:?subject=${sharingText}&body=${sharingUrl}`
         },
+        deps: {
+            codebed: contentDeps.includes('code-bed'),
+        }
     };
 }
 
