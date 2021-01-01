@@ -11,7 +11,7 @@ const katex = require('katex');
 const matter = require('gray-matter');
 const { format } = require('date-fns');
 const cheerio = require('cheerio');
-const { /*isRelativeUrl,*/ getContentName, getContentFiles, readFileToString } = require('./util');
+const { getContentName, getContentFiles, readFileToString } = require('./util');
 
 const writeFilePromise = util.promisify(fs.writeFile);
 
@@ -19,8 +19,6 @@ const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
 const indexViewOutput = path.resolve('docs/index.html');
 const contentViewOutput = path.resolve('docs/content');
-
-// const baseUrl = '';
 
 md.use(mila, {
     pattern: /^(https|http):/,
@@ -37,22 +35,9 @@ md.use(tm, {
     }
 });
 
-// function rewriteUrl($, cheerioElem, attr = 'href') {
-//     const currHref = $(cheerioElem).attr(attr);
-//     if (isRelativeUrl(currHref)) {
-//         $(cheerioElem).attr(attr, `${baseUrl}${currHref}`);
-//     }
-// }
-
 async function renderView(viewPath, data) {
     const viewString = await ejs.renderFile(viewPath, data);
     const $ = cheerio.load(viewString);
-
-    // $('a')
-    //     .map((_, a) => rewriteUrl($, a));
-    // $('link')
-    //     .map((_, link) => rewriteUrl($, link));
-
     return $.html();
 }
 

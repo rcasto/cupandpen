@@ -4,10 +4,6 @@ const path = require('path');
 const contentDirectoryPath = path.resolve('./content');
 const markdownFileExtension = '.md';
 
-function isRelativeUrl(url) {
-    return url && url[0] === '/';
-}
-
 function isMarkdownFile(name) {
     return path.extname(name) === markdownFileExtension;
 }
@@ -48,7 +44,6 @@ async function getContentFiles() {
 }
 
 module.exports = {
-    isRelativeUrl,
     getContentName,
     readFileToString,
     getContentFiles,
