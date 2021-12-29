@@ -21,7 +21,12 @@ const indexViewOutput = path.resolve('docs/index.html');
 const contentViewOutput = path.resolve('docs/content');
 
 md.use(mila, {
-    pattern: /^(https|http):/,
+    matcher(href, config) {
+        return (
+            href.startsWith('https:') ||
+            href.startsWith('http:')
+        );
+    },
     attrs: {
         target: '_blank',
         rel: 'noopener noreferrer'
