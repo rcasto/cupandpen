@@ -40,8 +40,7 @@ This prob...">
 <p>In the readability-component scenario, the main use case for this syllable counting functionality is due to the number of syllables in a piece of text contributing towards the <a href="https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests#Flesch_reading_ease" target="_blank" rel="noopener noreferrer">Flesch reading-ease score</a>. It essentially contributes towards the average number of syllables per word in a piece of text. The higher this contribution is equating to a more difficult piece of text.</p>
 <section><eqn><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mn>206.835</mn><mo>−</mo><mn>1.015</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total&nbsp;words</mtext><mtext>total&nbsp;sentences</mtext></mfrac><mo fence="true">)</mo></mrow><mo>−</mo><mn>84.6</mn><mrow><mo fence="true">(</mo><mfrac><mtext>total&nbsp;syllables</mtext><mtext>total&nbsp;words</mtext></mfrac><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">
 {\displaystyle 206.835-1.015\left({\frac {\text{total words}}{\text{total sentences}}}\right)-84.6\left({\frac {\text{total syllables}}{\text{total words}}}\right)}
-</annotation></semantics></math></span></eqn></section>
-<p>The heuristic within readability-component for computing the number of syllables uses the following rules:</p>
+</annotation></semantics></math></span></eqn></section><p>The heuristic within readability-component for computing the number of syllables uses the following rules:</p>
 <ul>
 <li>Vowels consists of <code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>, <code>y</code></li>
 <li>Isolated single vowels contribute 1 syllable for the word</li>
@@ -117,8 +116,7 @@ This prob...">
 <p>There are <a href="https://en.wikipedia.org/wiki/List_of_readability_tests_and_formulas" target="_blank" rel="noopener noreferrer">more readability formulas than what is mentioned here</a>. Although the Flesch-Kincaid readability ease is one of the most popular. Another popular one I'll call out is <a href="https://en.wikipedia.org/wiki/Dale%E2%80%93Chall_readability_formula" target="_blank" rel="noopener noreferrer">Dale-Chall Readability Formula</a>.</p>
 <section><eqn><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mstyle scriptlevel="0" displaystyle="true"><mn>0.1579</mn><mrow><mo fence="true">(</mo><mfrac><mtext>difficult&nbsp;words</mtext><mtext>words</mtext></mfrac><mo>×</mo><mn>100</mn><mo fence="true">)</mo></mrow><mo>+</mo><mn>0.0496</mn><mrow><mo fence="true">(</mo><mfrac><mtext>words</mtext><mtext>sentences</mtext></mfrac><mo fence="true">)</mo></mrow></mstyle></mrow><annotation encoding="application/x-tex">
 {\displaystyle 0.1579\left({\frac {\text{difficult words}}{\text{words}}}\times 100\right)+0.0496\left({\frac {\text{words}}{\text{sentences}}}\right)}
-</annotation></semantics></math></span></eqn></section>
-<p>In this case, a <a href="https://www.readabilityformulas.com/articles/dale-chall-readability-word-list.php" target="_blank" rel="noopener noreferrer">corpus of words is used</a>, that is primarily driven by familiarity or understanding by at least 80% of 5th graders. If a word is not in the corpus, it is considered difficult.</p>
+</annotation></semantics></math></span></eqn></section><p>In this case, a <a href="https://www.readabilityformulas.com/articles/dale-chall-readability-word-list.php" target="_blank" rel="noopener noreferrer">corpus of words is used</a>, that is primarily driven by familiarity or understanding by at least 80% of 5th graders. If a word is not in the corpus, it is considered difficult.</p>
 <p>It should be noted that this readability metric has nothing to do with syllable counting.</p>
 <h3>Resources</h3>
 <ul>
