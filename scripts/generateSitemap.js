@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { SitemapStream, streamToPromise, parseSitemap } = require('sitemap');
 const formatXML = require('xml-formatter');
-const { getContentFiles } = require('./util');
+const { getContentFiles, getContentName } = require('./util');
 
 const siteUrl = 'https://cupandpen.com';
 const sitemapPath = 'public/sitemap.xml';
@@ -21,7 +21,7 @@ async function getCurrentSitemapItems() {
     contentFiles
         .forEach(contentFile => {
             sitemapItems.push({
-                url: `${siteUrl}/content/${encodeURIComponent(contentFile.name)}`,
+                url: `${siteUrl}/content/${encodeURIComponent(getContentName(contentFile.name))}`,
                 lastmod: currentDate,
             });
         });
