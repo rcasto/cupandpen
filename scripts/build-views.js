@@ -17,8 +17,8 @@ const writeFilePromise = util.promisify(fs.writeFile);
 
 const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
-const indexViewOutput = path.resolve('docs/index.html');
-const contentViewOutput = path.resolve('docs/content');
+const indexViewOutput = path.resolve('public/index.html');
+const contentViewOutput = path.resolve('public/content');
 
 md.use(mila, {
     matcher(href, config) {

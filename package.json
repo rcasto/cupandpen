@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "concurrently 'npm:watch-views' 'npm:start:server'",
-    "start:server": "http-server ./docs",
+    "start:server": "http-server ./public",
     "build": "concurrently 'npm:build:views' 'npm:build:sitemap'",
     "build:views": "node scripts/build-views.js",
     "build:sitemap": "node scripts/generateSitemap.js",

@@ -4,7 +4,7 @@ const formatXML = require('xml-formatter');
 const { getContentFiles } = require('./util');
 
 const siteUrl = 'https://cupandpen.com';
-const sitemapPath = 'docs/sitemap.xml';
+const sitemapPath = 'public/sitemap.xml';
 
 async function getExistingSitemapItems() {
     const siteMapReadStream = fs.createReadStream(sitemapPath);
