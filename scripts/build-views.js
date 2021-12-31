@@ -14,6 +14,8 @@ const cheerio = require('cheerio');
 const { getContentName, getContentFiles, readFileToString } = require('./util');
 
 const writeFilePromise = util.promisify(fs.writeFile);
+const mkdirPromise = util.promisify(fs.mkdir);
+const accessPromise = util.promisify(fs.access);
 
 const indexView = path.resolve('views/index.ejs');
 const contentView = path.resolve('views/content.ejs');
@@ -107,7 +109,11 @@ async function generateViews(contentIndex) {
     }
 }
 
-getContentFiles()
+accessPromise(contentViewOutput)
+    .catch(() => mkdirPromise(contentViewOutput, {
+        recursive: true,
+    }))
+    .then(() => getContentFiles())
     .then(async contentFiles => {
         const contentFilesInfo = await Promise.all(
             contentFiles
