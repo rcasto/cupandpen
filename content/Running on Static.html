@@ -1,0 +1,73 @@
+<!DOCTYPE html><html lang="en"><head>
+    
+        <title>Cup &amp; Pen - Running on Static</title>
+    
+    
+        <meta name="description" content="Cup &amp; Pen - Well, somewhat recently I wrote about how this site was running on a raspberry pi, but since then a good bit has happened.
+I actually moved across the country d...">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header>
+    <h1 class="header">
+        <a href="/">Cup &amp; Pen</a>
+    </h1>
+    
+</header>
+    <main>
+        <article class="content-item">
+    <div class="sharing-methods">
+        <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+        <a aria-label="Share to Twitter" href="https://twitter.com/intent/tweet?text=Check%20this%20out!&amp;url=https%3A%2F%2Fcupandpen.com%2Fcontent%2FRunning%2520on%2520Static" target="_blank">
+            <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+        </a>
+
+        <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
+        <a aria-label="Share via email" href="mailto:?subject=Check%20this%20out!&amp;body=https%3A%2F%2Fcupandpen.com%2Fcontent%2FRunning%2520on%2520Static" target="_blank">
+            ✉
+        </a>
+    </div>
+    <div class="content-timestamp">December 26, 2020</div>
+    <read-ability>
+        <div slot="readable-text" class="content">
+            <h2>Running on Static</h2>
+            <p>Well, somewhat recently I <a href="/content/Running%20on%20Pi">wrote about how this site was running on a raspberry pi</a>, but since then a good bit has happened.</p>
+<p>I actually moved across the country during this pandemic, I started a new job, more life, and somewhere along the way I decided to move this site from being hosted on a raspberry pi, to now being hosted via <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. I digress, during the move I had moved this site to being hosted on Google Cloud, but that time has now passed.</p>
+<p>A lot of the principles or ideas incorporated in the hosting and deployment of the site now, come from the <a href="https://jamstack.org/what-is-jamstack/" target="_blank" rel="noopener noreferrer">Jamstack</a> principles, or at least are inspired by it some haha.</p>
+<p>Main idea now being that instead of always re-rendering the static content on each request or even using a cache to hold "hot" static content, just pre-build the HTML views for this content to be served to the client.</p>
+<p>It's nothing incredibly complex, it honestly just makes a lot of sense, and I feel silly for doing it any other way before now haha.</p>
+<p>This site is essentially static now, almost CDN like, there are of course a few scripts/web components incorporated on the page, but they are not absolutely essential. Feel free to view the site without Javascript.</p>
+<p>As part of this migration, I had also made the repository for this site public, so you can now take a look at the <a href="https://github.com/rcasto/cupandpen" target="_blank" rel="noopener noreferrer">code for this site on GitHub.</a></p>
+<p>Ohhh I guess timestamps are also a new addition added to this site. You'll notice that some of the content is bunched to the same day and I likely didn't write all of it in one day, maybe some, but likely not, I honestly forget.</p>
+<p>Main reason that is the case is that I re-created some of the files before, which adjusted that creation time (womp womp). But from now on they should be more accurate, and with that I will try to hold myself more accountable in producing or at least writing more.</p>
+<p>Prepare to be bugged more world! Haha.</p>
+
+        </div>
+    </read-ability>
+</article>
+    </main>
+    <footer>
+    
+        <a class="footer-links-prev" href="/content/Recycled Coffee" aria-label="prevous content piece - Recycled Coffee">
+            ≺
+        </a>
+    
+    <social-contact github="rcasto" linkedin="rcasto">
+    </social-contact>
+    
+        <a class="footer-links-next" href="/content/Running on Pi" aria-label="next content piece - Running on Pi">
+            ≻
+        </a>
+    
+</footer>
+    <script async="" src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/simple-track@1.1.1/dist/index.umd.min.js"></script>
+<script defer="" src="/scripts/index.js"></script>
+    <script async="" src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
+
+
+</body></html>

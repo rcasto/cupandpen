@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en"><head>
+    
+        <title>Cup &amp; Pen - 2020 - Created things</title>
+    
+    
+        <meta name="description" content="Cup &amp; Pen - As we all know it has been a crazy year for everyone. And you've probably already seen or read about a 100 of these types of posts already with people explainin...">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <header>
+    <h1 class="header">
+        <a href="/">Cup &amp; Pen</a>
+    </h1>
+    
+</header>
+    <main>
+        <article class="content-item">
+    <div class="sharing-methods">
+        <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+        <a aria-label="Share to Twitter" href="https://twitter.com/intent/tweet?text=Check%20this%20out!&amp;url=https%3A%2F%2Fcupandpen.com%2Fcontent%2F2020%2520-%2520Created%2520things" target="_blank">
+            <img src="/images/twitter-logo.svg" alt="Twitter bird logo">
+        </a>
+
+        <!-- https://www.toptal.com/designers/htmlarrows/symbols/envelope/ -->
+        <a aria-label="Share via email" href="mailto:?subject=Check%20this%20out!&amp;body=https%3A%2F%2Fcupandpen.com%2Fcontent%2F2020%2520-%2520Created%2520things" target="_blank">
+            ✉
+        </a>
+    </div>
+    <div class="content-timestamp">January 5, 2021</div>
+    <read-ability>
+        <div slot="readable-text" class="content">
+            <h2>2020 - Created things</h2>
+            <p>As we all know it has been a crazy year for everyone. And you've probably already seen or read about a 100 of these types of posts already with people explaining there 2020 in review.</p>
+<p>Well, I'm going to kind of do that too, but just going over some of the stuff I managed to make this year. It's not a crazy amount, there are more impressive people than I for sure, and ya may find it quite boring, but eh this is mostly for me. Yeah, sorry I'm a little selfish haha.</p>
+<p>Let's get started.</p>
+<hr>
+<p>Ok first, some constraints. I was mainly interested in mentioning projects I started within 2020 and finished to a reasonable extent, as much as piece of software can be completed haha.</p>
+<p>I worked on existing projects and made improvements to them within 2020 as well, but for the most part won't be mentioning these changes.</p>
+<p>For getting a list of the projects that met this criteria I used the script below to find public projects on my GitHub that had there first commit during 2020. It makes use of the <a href="https://docs.github.com/en/free-pro-team@latest/rest" target="_blank" rel="noopener noreferrer">GitHub API</a>, and you <em>should</em> be able to make use of it as well if you edit it to utilize your GitHub username and a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token" target="_blank" rel="noopener noreferrer">personal access token</a> with at least repo access</p>
+<pre><code class="language-python">import requests
+from datetime import datetime
+from dateutil import tz
+
+# Edit with your GitHub info
+githubUsername = '&lt;your-github-username&gt;'
+githubPersonalToken = '&lt;your-github-personal-access-token&gt;'
+
+githubApiBaseUrl = 'https://api.github.com'
+
+# Filter for first commit date (only 2020 right now, but can be removed/edited)
+def is_valid_first_commit_date(first_commit_date):
+    return first_commit_date.year == 2020
+
+def convertDateToLocal(dateString, dateStringFormat = '%Y-%m-%dT%H:%M:%SZ'):
+    from_zone = tz.tzutc()
+    to_zone = tz.tzlocal()
+
+    commit_date_utc = datetime.strptime(dateString, dateStringFormat)
+    commit_date_utc = commit_date_utc.replace(tzinfo=from_zone)
+
+    commit_date_local = commit_date_utc.astimezone(to_zone)
+
+    return commit_date_local
+
+def getGitHubResource(url):
+    response = requests.get(url, headers={ 'Authorization': 'Bearer {}'.format(githubPersonalToken) })
+
+    if not response.ok:
+        print(response.status_code, response.reason)
+
+    return response.json()
+
+def find_first_commit(repo, page = 1, first_commit = None):
+    githubCommitUrl = '{}/repos/rcasto/{}/commits?per_page=100&amp;page={}'.format(githubApiBaseUrl, repo, page)
+    commits = getGitHubResource(githubCommitUrl)
+    numCommits = len(commits)
+
+    if numCommits == 0:
+        return first_commit
+
+    first_commit = commits[numCommits - 1]
+
+    return find_first_commit(repo, page + 1, first_commit)
+
+def get_repos_for_user(username, page = 1, repos = []):
+    githubRepoUrl = '{}/users/{}/repos?per_page=100&amp;page={}'.format(githubApiBaseUrl, username, page)
+
+    curr_repos = getGitHubResource(githubRepoUrl)
+    num_repos = len(curr_repos)
+
+    if num_repos == 0:
+        return list(filter(lambda repo: (not repo['fork']), repos))
+
+    repos += curr_repos
+
+    return get_repos_for_user(username, page + 1, repos)
+
+# Script execution
+repos = get_repos_for_user(githubUsername)
+longest_repo_name_length = 0
+
+for repo in repos:
+    repo_name = repo['name']
+    repo_name_length = len(repo_name)
+
+    if repo_name_length &gt; longest_repo_name_length:
+        longest_repo_name_length = repo_name_length
+
+for repo in repos:
+    repo_name = repo['name']
+    first_commit = find_first_commit(repo_name)
+
+    num_spacers_for_repo = longest_repo_name_length - len(repo_name)
+
+    commit_info = first_commit['commit']
+    commit_author = commit_info['author']['name']
+    commit_date = convertDateToLocal(commit_info['author']['date'])
+    commit_message = commit_info['message']
+
+    if not is_valid_first_commit_date(commit_date):
+        continue
+
+    commit_date_string = commit_date.strftime('(%m-%d-%Y %H:%M:%S)')
+    first_commit_string = '{}{}: {} {} - {}'.format(repo_name, ' ' * num_spacers_for_repo, commit_date_string, commit_author, commit_message)
+
+    print(first_commit_string)
+</code></pre>
+<p>The command below can also be used witin a git based project to find the first commit of a project including its date.</p>
+<pre><code class="language-bash">git log --reverse | head -5
+</code></pre>
+<hr>
+<p>And finally, the results. Below are the new projects I started and "completed" in 2020, listed in chronological order by the first commit:</p>
+<ul>
+<li>
+<p><a href="https://github.com/rcasto/covid19-report" target="_blank" rel="noopener noreferrer">covid19-report</a></p>
+<ul>
+<li><strong>Description:</strong> A little site made to display COVID-19 data and raw counts <a href="https://github.com/CSSEGISandData/COVID-19" target="_blank" rel="noopener noreferrer">provided by Johns Hopkins University</a></li>
+<li><strong>Website:</strong> <a href="https://covid19-report.today/" target="_blank" rel="noopener noreferrer">https://covid19-report.today/</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/code-bed" target="_blank" rel="noopener noreferrer">code-bed</a></p>
+<ul>
+<li><strong>Description:</strong> A web component that allows easy embedding of a <a href="https://codepen.io" target="_blank" rel="noopener noreferrer">CodePen</a> on your site. I actually use it for the CodePen embeds on this site.</li>
+</ul>
+<p><code-bed data-slug-hash="ExVoXKW"></code-bed></p>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/express-request-activity" target="_blank" rel="noopener noreferrer">express-request-activity</a></p>
+<ul>
+<li><strong>Description:</strong> This one is a little different haha. Mainly made this one to essentially turn an LED on/off whenever an HTTP request was made to a server of mine that was running on my <a href="https://www.raspberrypi.org/" target="_blank" rel="noopener noreferrer">Raspberry Pi</a>. This could be used to do a substitude action, however to the LED on/off.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/downpop" target="_blank" rel="noopener noreferrer">downpop</a></p>
+<ul>
+<li><strong>Description:</strong> A little utility to fetch the <a href="https://www.npmjs.com/" target="_blank" rel="noopener noreferrer">npm</a> download count for packages. It will create charts visualizing the downloads counts over the last day, week, month, and year.</li>
+</ul>
+<p>Assuming you have <a href="https://nodejs.org" target="_blank" rel="noopener noreferrer">Node.js</a> installed, you should be able to run the following command as an example:</p>
+<pre><code class="language-bash">npx downpop@latest react vue jquery
+</code></pre>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/infinite-scroll-component" target="_blank" rel="noopener noreferrer">infinite-scroll-component</a></p>
+<ul>
+<li><strong>Description:</strong> Another web component that enables infinite scrolling of content it contains.</li>
+<li><strong>Website/Example:</strong> <a href="https://rcasto.github.io/infinite-scroll-component/" target="_blank" rel="noopener noreferrer">https://rcasto.github.io/infinite-scroll-component/</a></li>
+</ul>
+<p><code-bed data-slug-hash="eYJxepG" data-height="800"></code-bed></p>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/rcasto.dev" target="_blank" rel="noopener noreferrer">rcasto.dev</a></p>
+<ul>
+<li><strong>Description:</strong> A little website, mainly made to display some of my work, it is not exhaustive, but it has some more listed.</li>
+<li><strong>Website:</strong> <a href="https://rcasto.dev/" target="_blank" rel="noopener noreferrer">https://rcasto.dev/</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/snip-file" target="_blank" rel="noopener noreferrer">snip-file</a></p>
+<ul>
+<li><strong>Description:</strong> Another little utility to take a file and templatize it into a <a href="https://code.visualstudio.com/docs/editor/userdefinedsnippets" target="_blank" rel="noopener noreferrer">VS Code snippet</a>.</li>
+</ul>
+<p>You can try it with the command below:</p>
+<pre><code>npx snip-file@latest &lt;path-to-file&gt;
+</code></pre>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/copy-image-to-clipboard-demo" target="_blank" rel="noopener noreferrer">copy-image-to-clipboard-demo</a></p>
+<ul>
+<li><strong>Description:</strong> Not really a project or anything, but more of a <a href="https://en.wikipedia.org/wiki/Proof_of_concept" target="_blank" rel="noopener noreferrer">POC</a>. Idea being taking an arbitrary HTML element or <a href="https://en.wikipedia.org/wiki/Document_Object_Model" target="_blank" rel="noopener noreferrer">DOM</a> sub-tree, converting it to an image, then copying it as said image to the clipboard. Makes use of <a href="https://html2canvas.hertzen.com/" target="_blank" rel="noopener noreferrer">html2canvas</a>.</li>
+<li><strong>Website/demo:</strong> <a href="https://rcasto.github.io/copy-image-to-clipboard-demo/" target="_blank" rel="noopener noreferrer">https://rcasto.github.io/copy-image-to-clipboard-demo/</a></li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/rcasto/simple-track" target="_blank" rel="noopener noreferrer">simple-track</a></p>
+<ul>
+<li><strong>Description:</strong> A little library that utilizes the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Beacon_API" target="_blank" rel="noopener noreferrer">Web Beacon API</a> to fire events to an analytics service/API endpoint. Full disclosure I use this little library on this site, mainly to track page view counts. No identifying information or otherwise is fired off.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>And that's all folks!</p>
+<p>Time to learn more, build more, and write more.</p>
+<p>Welcome to 2021 and happy new year to you all!</p>
+
+        </div>
+    </read-ability>
+</article>
+    </main>
+    <footer>
+    
+    <social-contact github="rcasto" linkedin="rcasto">
+    </social-contact>
+    
+        <a class="footer-links-next" href="/content/Recycled Coffee" aria-label="next content piece - Recycled Coffee">
+            ≻
+        </a>
+    
+</footer>
+    <script async="" src="https://cdn.jsdelivr.net/npm/social-contact@1.0.9/dist/socialcontact.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/simple-track@1.1.1/dist/index.umd.min.js"></script>
+<script defer="" src="/scripts/index.js"></script>
+    <script async="" src="https://cdn.jsdelivr.net/npm/readability-component@1.0.10/dist/readability.min.js"></script>
+
+    <script async="" src="https://cdn.jsdelivr.net/npm/code-bed@1.0.5/dist/codebed.min.js"></script>
+
+
+</body></html>
