@@ -1,5 +1,5 @@
 const appName = 'cupandpen';
-const analyticsApiUrl = 'https://analytics-service-299521.ue.r.appspot.com/analytics';
+const analyticsApiUrl = 'https://project-analytics.fly.dev/analytics';
 const eventTypes = {
     pageView: 'page-view',
 };
